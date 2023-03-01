@@ -5,6 +5,10 @@ Library     Collections
 Library     FakerLibrary
 Library     String
 
+
+//Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes. 
+
+
 *** Test Cases ***
 Validar criação do cliente 
     [Tags]  criarCliente
