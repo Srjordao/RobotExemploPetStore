@@ -8,7 +8,7 @@ Library     String
 
 //Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.
                   Cadastro e exclusão de serviços.
-//Teste de conexão
+//Teste de conexão dois
 
 #Eu como PO.
 #Quero cadastrar,consultar,alterar e excluir clientes. 
