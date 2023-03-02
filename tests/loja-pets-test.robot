@@ -6,9 +6,9 @@ Library     FakerLibrary
 Library     String
 
 
-//Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.
-                  Cadastro e exclusão de serviços.
-//Teste de conexão 4
+#Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.
+#                Cadastro e exclusão de serviços.
+//Teste de conexão 5
 
 #Eu como PO.
 #Quero cadastrar,consultar,alterar e excluir clientes. 
