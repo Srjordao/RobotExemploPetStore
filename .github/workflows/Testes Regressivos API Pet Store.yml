@@ -3,10 +3,10 @@ name: Testes Regressivos API Pet Store
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
   schedule:
     - cron: "0 * * * *"
 
