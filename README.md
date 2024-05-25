@@ -1,4 +1,4 @@
-# Projeto de Teste de APIs para Pet Store
+# Projeto de Teste de APIs para Pet Store 🚀
 
 Este projeto tem como objetivo simular uma aplicação de uma Pet Store, onde são realizadas operações de cadastro, alteração e exclusão de informações por meio de chamadas a APIs públicas. Utilizando Python 3.10 ou a versão mais recente, juntamente com o Robot Framework, é possível automatizar essas interações e garantir a integridade e a qualidade do sistema.
 
