@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Robot Framework tests
         run: |
-          robot -d output/allure --listener allure_robotframework "RamdonUser/tests"
+          robot -d output/allure --listener allure_robotframework "RobotExemploPetStore/tests/"
 
       - name: Publish Allure Report as Artifact
         uses: actions/upload-artifact@v2
