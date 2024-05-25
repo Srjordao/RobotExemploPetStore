@@ -1,0 +1,62 @@
+name: Testes Regressivos API Pet Store
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  run_robot_tests:
+    name: Testes Regressivos API Pet Store
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade setuptools
+          pip install allure-robotframework
+          pip install robotframework-faker
+          pip install robotframework-jsonlibrary
+          pip install robotframework-jsonschemalibrary
+          pip install robotframework-jsonvalidator
+          pip install robotframework-metrics
+          pip install robotframework-requests
+          pip install robotframework-xvfb
+          pip install robotframework-pythonlibcore
+          pip install pyyaml
+
+      - name: Run Robot Framework tests
+        run: |
+          robot -d output/allure --listener allure_robotframework "tests"
+
+      - name: Publish Allure Report as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-report
+          path: output/allure
+
+      - name: Deploy report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output/allure
+
+  hourly_job:
+    name: Hourly Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Current Time
+        run: echo "The current time is $(date)"
