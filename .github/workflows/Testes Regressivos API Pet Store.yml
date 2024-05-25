@@ -48,12 +48,6 @@ jobs:
           name: allure-report
           path: output/allure
 
-      - name: Deploy report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output/allure
-
   hourly_job:
     name: Hourly Job
     runs-on: ubuntu-latest
