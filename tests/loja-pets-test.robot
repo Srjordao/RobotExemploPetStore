@@ -1,13 +1,10 @@
 *** Settings ***
+Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/services/api-Pets/loja-pets-service.robot
 Resource    ${EXECDIR}/config/base.robot
-Resource    ../services/api-Pets/loja-pets-service.robot
+Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/services/api-Pets/loja-pets-service.robot
 Library     Collections
 Library     FakerLibrary
 Library     String
-
-
-
-
 
 #Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.
 #                Cadastro e exclusão de serviços.
