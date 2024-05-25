@@ -11,7 +11,7 @@ on:
 
 jobs:
   run_robot_tests:
-    name: Testes Regressivos API Random User
+    name: Testes Regressivos API Pet Store
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
