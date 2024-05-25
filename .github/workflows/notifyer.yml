@@ -3,7 +3,7 @@ name: Notificação de Resultado de Testes
 on:
   workflow_run:
     workflows:
-      - "Testes Regressivos API Random User"
+      - "Testes Regressivos API Pet Store"
     types:
       - completed
 
