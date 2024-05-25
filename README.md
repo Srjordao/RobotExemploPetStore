@@ -1,24 +1,27 @@
-# Projeto Teste 
+# Projeto de Teste de APIs
 
-Projeto para aprender a automatizar apis publicas. 
+Este projeto visa proporcionar uma experiência prática na automatização de chamadas a APIs públicas. Utiliza-se o Python 3.10 ou a versão mais recente, juntamente com o Robot Framework, permitindo uma abordagem eficiente e simplificada para criar testes automatizados para APIs.
 
-*** Configurações ***
+***Configurações***
 
-Instalar Python 3.10 ou ultima versão e RobotFramework ultima versão
+Antes de utilizar o projeto, certifique-se de instalar o Python 3.10 ou a última versão disponível, assim como o Robot Framework, utilizando os seguintes comandos:
+```
 pip install -r requirements.txt
 pip install robotframework
+```
 
-*** Estrutura de Pastas ***
+***Estrutura de Pastas***
 
-Data - Body das chamadas da APIS e massas.
+O projeto segue uma estrutura organizada em pastas:
 
-Services - Requisições das APIS.
+- **Data**: Contém os corpos das chamadas das APIs e massas de dados.
+  
+- **Services**: Responsável por realizar as requisições às APIs.
 
-Tests - Suítes de testes.
+- **Tests**: Aqui são definidas as suítes de testes.
 
+***Pipeline***
 
-*** Pipeline ***
-
-Além disso, foi estabelecida uma robusta pipeline de testes utilizando o Jenkins para automação do processo de integração contínua. Essa pipeline é responsável por executar os testes definidos no projeto após cada alteração no repositório. Após a conclusão dos testes, o Jenkins envia notificações para um canal específico no Slack, informando o status da execução dos testes. Essa integração contínua proporciona uma abordagem eficiente para garantir a qualidade do código e facilita a colaboração da equipe ao manter todos os membros informados sobre o estado dos testes.
+Uma robusta pipeline de testes foi estabelecida utilizando o Jenkins para automatizar o processo de integração contínua. Esta pipeline executa os testes definidos no projeto após cada alteração no repositório. Ao término dos testes, o Jenkins envia notificações para um canal específico no Slack, mantendo toda a equipe informada sobre o status da execução dos testes. Essa integração contínua garante a qualidade do código e facilita a colaboração da equipe.
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
