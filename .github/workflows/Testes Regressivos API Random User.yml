@@ -1,4 +1,5 @@
 name: Testes Regressivos API Pet Store
+
 on:
   push:
     branches:
@@ -26,11 +27,19 @@ jobs:
         run: |
           pip install --upgrade setuptools
           pip install allure-robotframework
-          pip install robotframework-faker robotframework-jsonlibrary robotframework-jsonschemalibrary robotframework-jsonvalidator robotframework-metrics robotframework-requests robotframework-xvfb robotframework-pythonlibcore pyYAML
+          pip install robotframework-faker
+          pip install robotframework-jsonlibrary
+          pip install robotframework-jsonschemalibrary
+          pip install robotframework-jsonvalidator
+          pip install robotframework-metrics
+          pip install robotframework-requests
+          pip install robotframework-xvfb
+          pip install robotframework-pythonlibcore
+          pip install pyYAML
 
       - name: Run Robot Framework tests
         run: |
-          robot -d output/allure --listener allure_robotframework "RobotExemploPetStore/tests/"
+          robot -d output/allure --listener allure_robotframework "tests"
 
       - name: Publish Allure Report as Artifact
         uses: actions/upload-artifact@v2
@@ -50,4 +59,3 @@ jobs:
     steps:
       - name: Print Current Time
         run: echo "The current time is $(date)"
-        
