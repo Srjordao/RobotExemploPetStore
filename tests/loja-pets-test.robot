@@ -1,7 +1,7 @@
 *** Settings ***
-Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/services/api-Pets/loja-pets-service.robot
+Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/Services/api-Pets/loja-pets-service.robot
 Resource    ${EXECDIR}/config/base.robot
-Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/services/api-Pets/loja-pets-service.robot
+Resource    /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/Services/api-Pets/loja-pets-service.robot
 Library     Collections
 Library     FakerLibrary
 Library     String
