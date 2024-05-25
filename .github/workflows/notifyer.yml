@@ -1,0 +1,41 @@
+name: Notificação de Resultado de Testes
+
+on:
+  workflow_run:
+    workflows:
+      - "Testes Regressivos API Random User"
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set workflow name
+        run: echo "WORKFLOW_NAME=Testes Regressivos API Random User" >> $GITHUB_ENV
+
+      - name: Enviar notificação pelo Telegram - Sucesso
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🚀 Workflow: ${{ env.WORKFLOW_NAME }} 💻
+            📅 Evento: ${{ github.event.workflow_run.event }}
+            ✅ Status: A esteira foi executada com sucesso ✅
+            📂 Repositório: https://github.com/Srjordao/RobotExemploPetStore
+
+      - name: Enviar notificação pelo Telegram - Falha
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🚀 Workflow: ${{ env.WORKFLOW_NAME }} 💻
+            📅 Evento: ${{ github.event.workflow_run.event }}
+            ⚠️ Status: A esteira falhou ❌
+            📂 Repositório: https://github.com/Srjordao/RobotExemploPetStore
+          
