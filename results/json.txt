@@ -1,0 +1,2350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230302 10:54:57.473" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot-Exemplo" source="C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo">
+<suite id="s1-s1" name="Tests" source="C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo\tests">
+<suite id="s1-s1-s1" name="Loja-Pets-Test" source="C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo\tests\loja-pets-test.robot">
+<test id="s1-s1-s1-t1" name="Validar criação do cliente" line="22">
+<kw name="Conectar API" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>criarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:54:58.369" level="INFO">Creating Session using : alias=criarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:54:58.368" endtime="20230302 10:54:58.372"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>consultarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:54:58.373" level="INFO">Creating Session using : alias=consultarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:54:58.372" endtime="20230302 10:54:58.374"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alterarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:54:58.377" level="INFO">Creating Session using : alias=alterarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:54:58.376" endtime="20230302 10:54:58.378"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:54:58.380" level="INFO">Creating Session using : alias=deletarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:54:58.379" endtime="20230302 10:54:58.381"/>
+</kw>
+<status status="PASS" starttime="20230302 10:54:58.368" endtime="20230302 10:54:58.382"/>
+</kw>
+<kw name="Criar cliente" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:54:58.390" level="INFO">${user} = taylorsanders</msg>
+<status status="PASS" starttime="20230302 10:54:58.388" endtime="20230302 10:54:58.391"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.394" level="INFO">${user} = taylorsanders</msg>
+<status status="PASS" starttime="20230302 10:54:58.392" endtime="20230302 10:54:58.396"/>
+</kw>
+<msg timestamp="20230302 10:54:58.396" level="INFO">${user} = taylorsanders</msg>
+<status status="PASS" starttime="20230302 10:54:58.387" endtime="20230302 10:54:58.397"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:54:58.402" level="INFO">${firstName} = Henry</msg>
+<status status="PASS" starttime="20230302 10:54:58.399" endtime="20230302 10:54:58.403"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.404" level="INFO">${firstName} = Henry</msg>
+<status status="PASS" starttime="20230302 10:54:58.403" endtime="20230302 10:54:58.406"/>
+</kw>
+<msg timestamp="20230302 10:54:58.407" level="INFO">${firstName} = Henry</msg>
+<status status="PASS" starttime="20230302 10:54:58.398" endtime="20230302 10:54:58.410"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:54:58.413" level="INFO">${lastName} = Brown</msg>
+<status status="PASS" starttime="20230302 10:54:58.412" endtime="20230302 10:54:58.414"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.419" level="INFO">${lastName} = Brown</msg>
+<status status="PASS" starttime="20230302 10:54:58.416" endtime="20230302 10:54:58.420"/>
+</kw>
+<msg timestamp="20230302 10:54:58.421" level="INFO">${lastName} = Brown</msg>
+<status status="PASS" starttime="20230302 10:54:58.410" endtime="20230302 10:54:58.423"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:54:58.428" level="INFO">${email} = qsmith@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:58.426" endtime="20230302 10:54:58.429"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.432" level="INFO">${email} = qsmith@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:58.429" endtime="20230302 10:54:58.434"/>
+</kw>
+<msg timestamp="20230302 10:54:58.435" level="INFO">${email} = qsmith@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:58.423" endtime="20230302 10:54:58.436"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:54:58.439" level="INFO">${password} = *2!9MjfqWQ</msg>
+<status status="PASS" starttime="20230302 10:54:58.437" endtime="20230302 10:54:58.442"/>
+</kw>
+<msg timestamp="20230302 10:54:58.443" level="INFO">${password} = *2!9MjfqWQ</msg>
+<status status="PASS" starttime="20230302 10:54:58.436" endtime="20230302 10:54:58.444"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:54:58.450" level="INFO">${phone} = 001-600-062-4851x80401</msg>
+<status status="PASS" starttime="20230302 10:54:58.449" endtime="20230302 10:54:58.452"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.454" level="INFO">${phone} = 001-600-062-4851x80401</msg>
+<status status="PASS" starttime="20230302 10:54:58.453" endtime="20230302 10:54:58.455"/>
+</kw>
+<msg timestamp="20230302 10:54:58.457" level="INFO">${phone} = 001-600-062-4851x80401</msg>
+<status status="PASS" starttime="20230302 10:54:58.446" endtime="20230302 10:54:58.460"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:54:58.465" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:54:58.463" endtime="20230302 10:54:58.466"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:58.469" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:54:58.467" endtime="20230302 10:54:58.470"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:54:58.472" level="INFO">${pet} = Porquinho-da-índia</msg>
+<status status="PASS" starttime="20230302 10:54:58.470" endtime="20230302 10:54:58.472"/>
+</kw>
+<msg timestamp="20230302 10:54:58.474" level="INFO">${pet} = Porquinho-da-índia</msg>
+<status status="PASS" starttime="20230302 10:54:58.461" endtime="20230302 10:54:58.475"/>
+</kw>
+<kw name="Criar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:54:58.479" level="INFO">${body} = {'body': {'username': 'taylorsanders', 'firstName': 'Henry', 'lastName': 'Brown', 'pet': 'Porquinho-da-índia', 'email': 'qsmith@example.com', 'password': '*2!9MjfqWQ', 'phone': '001-600-062-4851x80401...</msg>
+<status status="PASS" starttime="20230302 10:54:58.476" endtime="20230302 10:54:58.481"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:54:58.484" level="INFO">{'body': {'username': 'taylorsanders', 'firstName': 'Henry', 'lastName': 'Brown', 'pet': 'Porquinho-da-índia', 'email': 'qsmith@example.com', 'password': '*2!9MjfqWQ', 'phone': '001-600-062-4851x80401', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:54:58.483" endtime="20230302 10:54:58.486"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:54:58.488" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:54:58.487" endtime="20230302 10:54:58.489"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>criarCliente</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:54:59.370" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '225', 'Content-Type': 'application/json'} 
+ body=b'{"body": {"username": "taylorsanders", "firstName": "Henry", "lastName": "Brown", "pet": "Porquinho-da-\\u00edndia", "email": "qsmith@example.com", "password": "*2!9MjfqWQ", "phone": "001-600-062-4851x80401", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:54:59.372" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '214', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:54:58 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"1","body":{"username":"taylorsanders","firstName":"Henry","lastName":"Brown","pet":"Porquinho-da-índia","email":"qsmith@example.com","password":"*2!9MjfqWQ","phone":"001-600-062-4851x80401","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:54:59.374" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:54:59.382" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:54:58.490" endtime="20230302 10:54:59.383"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:54:59.386" level="INFO">{'id': '1', 'body': {'username': 'taylorsanders', 'firstName': 'Henry', 'lastName': 'Brown', 'pet': 'Porquinho-da-índia', 'email': 'qsmith@example.com', 'password': '*2!9MjfqWQ', 'phone': '001-600-062-4851x80401', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:54:59.384" endtime="20230302 10:54:59.389"/>
+</kw>
+<status status="PASS" starttime="20230302 10:54:58.384" endtime="20230302 10:54:59.391"/>
+</kw>
+<kw name="Criar cliente" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:54:59.397" level="INFO">${user} = patriciarodriguez</msg>
+<status status="PASS" starttime="20230302 10:54:59.394" endtime="20230302 10:54:59.398"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.400" level="INFO">${user} = patriciarodriguez</msg>
+<status status="PASS" starttime="20230302 10:54:59.398" endtime="20230302 10:54:59.401"/>
+</kw>
+<msg timestamp="20230302 10:54:59.402" level="INFO">${user} = patriciarodriguez</msg>
+<status status="PASS" starttime="20230302 10:54:59.394" endtime="20230302 10:54:59.402"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:54:59.406" level="INFO">${firstName} = Krystal</msg>
+<status status="PASS" starttime="20230302 10:54:59.405" endtime="20230302 10:54:59.408"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.414" level="INFO">${firstName} = Krystal</msg>
+<status status="PASS" starttime="20230302 10:54:59.410" endtime="20230302 10:54:59.419"/>
+</kw>
+<msg timestamp="20230302 10:54:59.421" level="INFO">${firstName} = Krystal</msg>
+<status status="PASS" starttime="20230302 10:54:59.403" endtime="20230302 10:54:59.422"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:54:59.430" level="INFO">${lastName} = Johnson</msg>
+<status status="PASS" starttime="20230302 10:54:59.425" endtime="20230302 10:54:59.432"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.436" level="INFO">${lastName} = Johnson</msg>
+<status status="PASS" starttime="20230302 10:54:59.433" endtime="20230302 10:54:59.439"/>
+</kw>
+<msg timestamp="20230302 10:54:59.441" level="INFO">${lastName} = Johnson</msg>
+<status status="PASS" starttime="20230302 10:54:59.423" endtime="20230302 10:54:59.448"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:54:59.453" level="INFO">${email} = andrewmoreno@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.451" endtime="20230302 10:54:59.455"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.460" level="INFO">${email} = andrewmoreno@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.456" endtime="20230302 10:54:59.463"/>
+</kw>
+<msg timestamp="20230302 10:54:59.484" level="INFO">${email} = andrewmoreno@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.449" endtime="20230302 10:54:59.487"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:54:59.491" level="INFO">${password} = 5(2FYCa+Eg</msg>
+<status status="PASS" starttime="20230302 10:54:59.489" endtime="20230302 10:54:59.496"/>
+</kw>
+<msg timestamp="20230302 10:54:59.497" level="INFO">${password} = 5(2FYCa+Eg</msg>
+<status status="PASS" starttime="20230302 10:54:59.488" endtime="20230302 10:54:59.499"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:54:59.509" level="INFO">${phone} = 001-523-568-2588x3302</msg>
+<status status="PASS" starttime="20230302 10:54:59.502" endtime="20230302 10:54:59.513"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.517" level="INFO">${phone} = 001-523-568-2588x3302</msg>
+<status status="PASS" starttime="20230302 10:54:59.514" endtime="20230302 10:54:59.520"/>
+</kw>
+<msg timestamp="20230302 10:54:59.523" level="INFO">${phone} = 001-523-568-2588x3302</msg>
+<status status="PASS" starttime="20230302 10:54:59.500" endtime="20230302 10:54:59.524"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:54:59.529" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:54:59.527" endtime="20230302 10:54:59.532"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.534" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:54:59.533" endtime="20230302 10:54:59.536"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:54:59.540" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:54:59.537" endtime="20230302 10:54:59.541"/>
+</kw>
+<msg timestamp="20230302 10:54:59.546" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:54:59.525" endtime="20230302 10:54:59.548"/>
+</kw>
+<kw name="Criar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:54:59.556" level="INFO">${body} = {'body': {'username': 'patriciarodriguez', 'firstName': 'Krystal', 'lastName': 'Johnson', 'pet': 'Hamster', 'email': 'andrewmoreno@example.com', 'password': '5(2FYCa+Eg', 'phone': '001-523-568-2588x33...</msg>
+<status status="PASS" starttime="20230302 10:54:59.549" endtime="20230302 10:54:59.558"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:54:59.564" level="INFO">{'body': {'username': 'patriciarodriguez', 'firstName': 'Krystal', 'lastName': 'Johnson', 'pet': 'Hamster', 'email': 'andrewmoreno@example.com', 'password': '5(2FYCa+Eg', 'phone': '001-523-568-2588x3302', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:54:59.559" endtime="20230302 10:54:59.564"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:54:59.568" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:54:59.566" endtime="20230302 10:54:59.574"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>criarCliente</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:54:59.772" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '222', 'Content-Type': 'application/json'} 
+ body=b'{"body": {"username": "patriciarodriguez", "firstName": "Krystal", "lastName": "Johnson", "pet": "Hamster", "email": "andrewmoreno@example.com", "password": "5(2FYCa+Eg", "phone": "001-523-568-2588x3302", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:54:59.773" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '215', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:54:58 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","body":{"username":"patriciarodriguez","firstName":"Krystal","lastName":"Johnson","pet":"Hamster","email":"andrewmoreno@example.com","password":"5(2FYCa+Eg","phone":"001-523-568-2588x3302","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:54:59.776" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:54:59.778" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:54:59.575" endtime="20230302 10:54:59.782"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:54:59.789" level="INFO">{'id': '2', 'body': {'username': 'patriciarodriguez', 'firstName': 'Krystal', 'lastName': 'Johnson', 'pet': 'Hamster', 'email': 'andrewmoreno@example.com', 'password': '5(2FYCa+Eg', 'phone': '001-523-568-2588x3302', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:54:59.783" endtime="20230302 10:54:59.790"/>
+</kw>
+<status status="PASS" starttime="20230302 10:54:59.393" endtime="20230302 10:54:59.792"/>
+</kw>
+<kw name="Criar cliente" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:54:59.799" level="INFO">${user} = mwhitney</msg>
+<status status="PASS" starttime="20230302 10:54:59.797" endtime="20230302 10:54:59.803"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.809" level="INFO">${user} = mwhitney</msg>
+<status status="PASS" starttime="20230302 10:54:59.803" endtime="20230302 10:54:59.812"/>
+</kw>
+<msg timestamp="20230302 10:54:59.813" level="INFO">${user} = mwhitney</msg>
+<status status="PASS" starttime="20230302 10:54:59.795" endtime="20230302 10:54:59.814"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:54:59.819" level="INFO">${firstName} = Amber</msg>
+<status status="PASS" starttime="20230302 10:54:59.818" endtime="20230302 10:54:59.823"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.830" level="INFO">${firstName} = Amber</msg>
+<status status="PASS" starttime="20230302 10:54:59.826" endtime="20230302 10:54:59.831"/>
+</kw>
+<msg timestamp="20230302 10:54:59.832" level="INFO">${firstName} = Amber</msg>
+<status status="PASS" starttime="20230302 10:54:59.815" endtime="20230302 10:54:59.833"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:54:59.846" level="INFO">${lastName} = Nguyen</msg>
+<status status="PASS" starttime="20230302 10:54:59.840" endtime="20230302 10:54:59.848"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.854" level="INFO">${lastName} = Nguyen</msg>
+<status status="PASS" starttime="20230302 10:54:59.849" endtime="20230302 10:54:59.856"/>
+</kw>
+<msg timestamp="20230302 10:54:59.857" level="INFO">${lastName} = Nguyen</msg>
+<status status="PASS" starttime="20230302 10:54:59.836" endtime="20230302 10:54:59.858"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:54:59.868" level="INFO">${email} = janicejones@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.862" endtime="20230302 10:54:59.870"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.872" level="INFO">${email} = janicejones@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.871" endtime="20230302 10:54:59.877"/>
+</kw>
+<msg timestamp="20230302 10:54:59.878" level="INFO">${email} = janicejones@example.com</msg>
+<status status="PASS" starttime="20230302 10:54:59.859" endtime="20230302 10:54:59.879"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:54:59.886" level="INFO">${password} = qwAlq$Nv*7</msg>
+<status status="PASS" starttime="20230302 10:54:59.883" endtime="20230302 10:54:59.887"/>
+</kw>
+<msg timestamp="20230302 10:54:59.888" level="INFO">${password} = qwAlq$Nv*7</msg>
+<status status="PASS" starttime="20230302 10:54:59.880" endtime="20230302 10:54:59.889"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:54:59.896" level="INFO">${phone} = 001-290-764-5306</msg>
+<status status="PASS" starttime="20230302 10:54:59.893" endtime="20230302 10:54:59.898"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.901" level="INFO">${phone} = 001-290-764-5306</msg>
+<status status="PASS" starttime="20230302 10:54:59.899" endtime="20230302 10:54:59.901"/>
+</kw>
+<msg timestamp="20230302 10:54:59.902" level="INFO">${phone} = 001-290-764-5306</msg>
+<status status="PASS" starttime="20230302 10:54:59.890" endtime="20230302 10:54:59.904"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:54:59.909" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:54:59.906" endtime="20230302 10:54:59.912"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:54:59.914" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:54:59.912" endtime="20230302 10:54:59.914"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:54:59.920" level="INFO">${pet} = Tartaruga tigre dágua</msg>
+<status status="PASS" starttime="20230302 10:54:59.916" endtime="20230302 10:54:59.920"/>
+</kw>
+<msg timestamp="20230302 10:54:59.921" level="INFO">${pet} = Tartaruga tigre dágua</msg>
+<status status="PASS" starttime="20230302 10:54:59.904" endtime="20230302 10:54:59.923"/>
+</kw>
+<kw name="Criar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:54:59.928" level="INFO">${body} = {'body': {'username': 'mwhitney', 'firstName': 'Amber', 'lastName': 'Nguyen', 'pet': 'Tartaruga tigre dágua', 'email': 'janicejones@example.com', 'password': 'qwAlq$Nv*7', 'phone': '001-290-764-5306',...</msg>
+<status status="PASS" starttime="20230302 10:54:59.923" endtime="20230302 10:54:59.929"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:54:59.932" level="INFO">{'body': {'username': 'mwhitney', 'firstName': 'Amber', 'lastName': 'Nguyen', 'pet': 'Tartaruga tigre dágua', 'email': 'janicejones@example.com', 'password': 'qwAlq$Nv*7', 'phone': '001-290-764-5306', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:54:59.930" endtime="20230302 10:54:59.933"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:54:59.937" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:54:59.934" endtime="20230302 10:54:59.937"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>criarCliente</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:00.126" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '223', 'Content-Type': 'application/json'} 
+ body=b'{"body": {"username": "mwhitney", "firstName": "Amber", "lastName": "Nguyen", "pet": "Tartaruga tigre d\\u00e1gua", "email": "janicejones@example.com", "password": "qwAlq$Nv*7", "phone": "001-290-764-5306", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:00.127" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '212', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:54:58 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","body":{"username":"mwhitney","firstName":"Amber","lastName":"Nguyen","pet":"Tartaruga tigre dágua","email":"janicejones@example.com","password":"qwAlq$Nv*7","phone":"001-290-764-5306","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:00.130" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:00.132" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:54:59.938" endtime="20230302 10:55:00.133"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:00.136" level="INFO">{'id': '3', 'body': {'username': 'mwhitney', 'firstName': 'Amber', 'lastName': 'Nguyen', 'pet': 'Tartaruga tigre dágua', 'email': 'janicejones@example.com', 'password': 'qwAlq$Nv*7', 'phone': '001-290-764-5306', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:00.134" endtime="20230302 10:55:00.138"/>
+</kw>
+<status status="PASS" starttime="20230302 10:54:59.794" endtime="20230302 10:55:00.140"/>
+</kw>
+<tag>criarCliente</tag>
+<status status="PASS" starttime="20230302 10:54:58.365" endtime="20230302 10:55:00.143"/>
+</test>
+<test id="s1-s1-s1-t2" name="Consultar cliente" line="32">
+<kw name="Conectar API" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>criarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.150" level="INFO">Creating Session using : alias=criarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.149" endtime="20230302 10:55:00.151"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>consultarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.153" level="INFO">Creating Session using : alias=consultarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.152" endtime="20230302 10:55:00.154"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alterarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.156" level="INFO">Creating Session using : alias=alterarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.154" endtime="20230302 10:55:00.160"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.162" level="INFO">Creating Session using : alias=deletarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.161" endtime="20230302 10:55:00.163"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:00.148" endtime="20230302 10:55:00.164"/>
+</kw>
+<kw name="Consultar cliente" library="loja-pets-service">
+<kw name="Consultar Usuario" library="Pets">
+<var>${body}</var>
+<msg timestamp="20230302 10:55:00.166" level="INFO">${body} = {'body': {'username': '', 'firstName': '', 'lastName': '', 'pet': '', 'email': '', 'password': '', 'phone': '', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:00.166" endtime="20230302 10:55:00.167"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:00.169" level="INFO">{'body': {'username': '', 'firstName': '', 'lastName': '', 'pet': '', 'email': '', 'password': '', 'phone': '', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:00.168" endtime="20230302 10:55:00.170"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:00.171" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:00.170" endtime="20230302 10:55:00.172"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>consultarCliente</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:00.712" level="INFO">GET Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '129', 'Content-Type': 'application/json'} 
+ body=b'{"body": {"username": "", "firstName": "", "lastName": "", "pet": "", "email": "", "password": "", "phone": "", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:00.712" level="INFO">GET Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '645', 'Etag': '"-1634103428"', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:54:59 GMT', 'Via': '1.1 vegur'} 
+ body=[{"id":"1","body":{"username":"taylorsanders","firstName":"Henry","lastName":"Brown","pet":"Porquinho-da-índia","email":"qsmith@example.com","password":"*2!9MjfqWQ","phone":"001-600-062-4851x80401","userStatus":0}},{"id":"2","body":{"username":"patriciarodriguez","firstName":"Krystal","lastName":"Johnson","pet":"Hamster","email":"andrewmoreno@example.com","password":"5(2FYCa+Eg","phone":"001-523-568-2588x3302","userStatus":0}},{"id":"3","body":{"username":"mwhitney","firstName":"Amber","lastName":"Nguyen","pet":"Tartaruga tigre dágua","email":"janicejones@example.com","password":"qwAlq$Nv*7","phone":"001-290-764-5306","userStatus":0}}] 
+ </msg>
+<msg timestamp="20230302 10:55:00.713" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:00.716" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:00.173" endtime="20230302 10:55:00.716"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:00.719" level="INFO">[{'id': '1', 'body': {'username': 'taylorsanders', 'firstName': 'Henry', 'lastName': 'Brown', 'pet': 'Porquinho-da-índia', 'email': 'qsmith@example.com', 'password': '*2!9MjfqWQ', 'phone': '001-600-062-4851x80401', 'userStatus': 0}}, {'id': '2', 'body': {'username': 'patriciarodriguez', 'firstName': 'Krystal', 'lastName': 'Johnson', 'pet': 'Hamster', 'email': 'andrewmoreno@example.com', 'password': '5(2FYCa+Eg', 'phone': '001-523-568-2588x3302', 'userStatus': 0}}, {'id': '3', 'body': {'username': 'mwhitney', 'firstName': 'Amber', 'lastName': 'Nguyen', 'pet': 'Tartaruga tigre dágua', 'email': 'janicejones@example.com', 'password': 'qwAlq$Nv*7', 'phone': '001-290-764-5306', 'userStatus': 0}}]</msg>
+<status status="PASS" starttime="20230302 10:55:00.717" endtime="20230302 10:55:00.720"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:00.165" endtime="20230302 10:55:00.722"/>
+</kw>
+<tag>consultarCliente</tag>
+<status status="PASS" starttime="20230302 10:55:00.146" endtime="20230302 10:55:00.723"/>
+</test>
+<test id="s1-s1-s1-t3" name="Alterar cliente" line="40">
+<kw name="Conectar API" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>criarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.736" level="INFO">Creating Session using : alias=criarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.735" endtime="20230302 10:55:00.737"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>consultarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.739" level="INFO">Creating Session using : alias=consultarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.738" endtime="20230302 10:55:00.741"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alterarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.746" level="INFO">Creating Session using : alias=alterarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.744" endtime="20230302 10:55:00.747"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:00.752" level="INFO">Creating Session using : alias=deletarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:00.748" endtime="20230302 10:55:00.754"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:00.734" endtime="20230302 10:55:00.754"/>
+</kw>
+<kw name="Alterar cliente 1" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:55:00.770" level="INFO">${user} = sandraschmitt</msg>
+<status status="PASS" starttime="20230302 10:55:00.766" endtime="20230302 10:55:00.771"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.774" level="INFO">${user} = sandraschmitt</msg>
+<status status="PASS" starttime="20230302 10:55:00.772" endtime="20230302 10:55:00.780"/>
+</kw>
+<msg timestamp="20230302 10:55:00.782" level="INFO">${user} = sandraschmitt</msg>
+<status status="PASS" starttime="20230302 10:55:00.763" endtime="20230302 10:55:00.784"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:55:00.789" level="INFO">${firstName} = Deanna</msg>
+<status status="PASS" starttime="20230302 10:55:00.787" endtime="20230302 10:55:00.789"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.794" level="INFO">${firstName} = Deanna</msg>
+<status status="PASS" starttime="20230302 10:55:00.790" endtime="20230302 10:55:00.795"/>
+</kw>
+<msg timestamp="20230302 10:55:00.797" level="INFO">${firstName} = Deanna</msg>
+<status status="PASS" starttime="20230302 10:55:00.784" endtime="20230302 10:55:00.801"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:55:00.805" level="INFO">${lastName} = Chambers</msg>
+<status status="PASS" starttime="20230302 10:55:00.803" endtime="20230302 10:55:00.806"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.808" level="INFO">${lastName} = Chambers</msg>
+<status status="PASS" starttime="20230302 10:55:00.806" endtime="20230302 10:55:00.812"/>
+</kw>
+<msg timestamp="20230302 10:55:00.813" level="INFO">${lastName} = Chambers</msg>
+<status status="PASS" starttime="20230302 10:55:00.802" endtime="20230302 10:55:00.814"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:55:00.824" level="INFO">${email} = derekbailey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:00.822" endtime="20230302 10:55:00.825"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.830" level="INFO">${email} = derekbailey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:00.827" endtime="20230302 10:55:00.833"/>
+</kw>
+<msg timestamp="20230302 10:55:00.834" level="INFO">${email} = derekbailey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:00.814" endtime="20230302 10:55:00.836"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:55:00.839" level="INFO">${password} = %NAXtShPT2</msg>
+<status status="PASS" starttime="20230302 10:55:00.837" endtime="20230302 10:55:00.841"/>
+</kw>
+<msg timestamp="20230302 10:55:00.845" level="INFO">${password} = %NAXtShPT2</msg>
+<status status="PASS" starttime="20230302 10:55:00.836" endtime="20230302 10:55:00.848"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:55:00.854" level="INFO">${phone} = +1-993-831-2597x4478</msg>
+<status status="PASS" starttime="20230302 10:55:00.852" endtime="20230302 10:55:00.856"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.862" level="INFO">${phone} = +1-993-831-2597x4478</msg>
+<status status="PASS" starttime="20230302 10:55:00.857" endtime="20230302 10:55:00.866"/>
+</kw>
+<msg timestamp="20230302 10:55:00.868" level="INFO">${phone} = +1-993-831-2597x4478</msg>
+<status status="PASS" starttime="20230302 10:55:00.850" endtime="20230302 10:55:00.869"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:00.873" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:00.871" endtime="20230302 10:55:00.876"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:00.881" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:00.879" endtime="20230302 10:55:00.886"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:00.888" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:55:00.886" endtime="20230302 10:55:00.890"/>
+</kw>
+<msg timestamp="20230302 10:55:00.891" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:55:00.870" endtime="20230302 10:55:00.894"/>
+</kw>
+<kw name="Alterar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:55:00.900" level="INFO">${body} = {'id': 3, 'body': {'username': 'sandraschmitt', 'firstName': 'Deanna', 'lastName': 'Chambers', 'pet': 'Hamster', 'email': 'derekbailey@example.com', 'password': '%NAXtShPT2', 'phone': '+1-993-831-2597...</msg>
+<status status="PASS" starttime="20230302 10:55:00.896" endtime="20230302 10:55:00.904"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:00.907" level="INFO">{'id': 3, 'body': {'username': 'sandraschmitt', 'firstName': 'Deanna', 'lastName': 'Chambers', 'pet': 'Hamster', 'email': 'derekbailey@example.com', 'password': '%NAXtShPT2', 'phone': '+1-993-831-2597x4478', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:00.906" endtime="20230302 10:55:00.911"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:00.915" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:00.913" endtime="20230302 10:55:00.919"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alterarCliente</arg>
+<arg>/create/1</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:01.501" level="INFO">PUT Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ path_url=/petstore/create/1 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '225', 'Content-Type': 'application/json'} 
+ body=b'{"id": 3, "body": {"username": "sandraschmitt", "firstName": "Deanna", "lastName": "Chambers", "pet": "Hamster", "email": "derekbailey@example.com", "password": "%NAXtShPT2", "phone": "+1-993-831-2597x4478", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:01.501" level="INFO">PUT Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '209', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:00 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"1","body":{"username":"sandraschmitt","firstName":"Deanna","lastName":"Chambers","pet":"Hamster","email":"derekbailey@example.com","password":"%NAXtShPT2","phone":"+1-993-831-2597x4478","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:01.502" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:01.504" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:00.920" endtime="20230302 10:55:01.505"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alterarCliente</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:01.694" level="INFO">PUT Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '225', 'Content-Type': 'application/json'} 
+ body=b'{"id": 3, "body": {"username": "sandraschmitt", "firstName": "Deanna", "lastName": "Chambers", "pet": "Hamster", "email": "derekbailey@example.com", "password": "%NAXtShPT2", "phone": "+1-993-831-2597x4478", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:01.696" level="INFO">PUT Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '209', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:00 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","body":{"username":"sandraschmitt","firstName":"Deanna","lastName":"Chambers","pet":"Hamster","email":"derekbailey@example.com","password":"%NAXtShPT2","phone":"+1-993-831-2597x4478","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:01.698" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:01.700" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:01.505" endtime="20230302 10:55:01.706"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alterarCliente</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:01.897" level="INFO">PUT Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '225', 'Content-Type': 'application/json'} 
+ body=b'{"id": 3, "body": {"username": "sandraschmitt", "firstName": "Deanna", "lastName": "Chambers", "pet": "Hamster", "email": "derekbailey@example.com", "password": "%NAXtShPT2", "phone": "+1-993-831-2597x4478", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:01.898" level="INFO">PUT Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '209', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:00 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","body":{"username":"sandraschmitt","firstName":"Deanna","lastName":"Chambers","pet":"Hamster","email":"derekbailey@example.com","password":"%NAXtShPT2","phone":"+1-993-831-2597x4478","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:01.899" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:01.901" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:01.708" endtime="20230302 10:55:01.903"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:01.906" level="INFO">{'id': '3', 'body': {'username': 'sandraschmitt', 'firstName': 'Deanna', 'lastName': 'Chambers', 'pet': 'Hamster', 'email': 'derekbailey@example.com', 'password': '%NAXtShPT2', 'phone': '+1-993-831-2597x4478', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:01.904" endtime="20230302 10:55:01.907"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:00.757" endtime="20230302 10:55:01.910"/>
+</kw>
+<kw name="Alterar cliente 2" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:55:01.919" level="INFO">${user} = rachel17</msg>
+<status status="PASS" starttime="20230302 10:55:01.914" endtime="20230302 10:55:01.922"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:01.926" level="INFO">${user} = rachel17</msg>
+<status status="PASS" starttime="20230302 10:55:01.923" endtime="20230302 10:55:01.927"/>
+</kw>
+<msg timestamp="20230302 10:55:01.928" level="INFO">${user} = rachel17</msg>
+<status status="PASS" starttime="20230302 10:55:01.913" endtime="20230302 10:55:01.930"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:55:01.936" level="INFO">${firstName} = Mary</msg>
+<status status="PASS" starttime="20230302 10:55:01.933" endtime="20230302 10:55:01.938"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:01.943" level="INFO">${firstName} = Mary</msg>
+<status status="PASS" starttime="20230302 10:55:01.939" endtime="20230302 10:55:01.947"/>
+</kw>
+<msg timestamp="20230302 10:55:01.949" level="INFO">${firstName} = Mary</msg>
+<status status="PASS" starttime="20230302 10:55:01.931" endtime="20230302 10:55:01.952"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:55:01.956" level="INFO">${lastName} = Dalton</msg>
+<status status="PASS" starttime="20230302 10:55:01.955" endtime="20230302 10:55:01.957"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:01.960" level="INFO">${lastName} = Dalton</msg>
+<status status="PASS" starttime="20230302 10:55:01.958" endtime="20230302 10:55:01.961"/>
+</kw>
+<msg timestamp="20230302 10:55:01.962" level="INFO">${lastName} = Dalton</msg>
+<status status="PASS" starttime="20230302 10:55:01.954" endtime="20230302 10:55:01.964"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:55:01.969" level="INFO">${email} = debraramsey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:01.966" endtime="20230302 10:55:01.971"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:01.974" level="INFO">${email} = debraramsey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:01.972" endtime="20230302 10:55:01.976"/>
+</kw>
+<msg timestamp="20230302 10:55:01.976" level="INFO">${email} = debraramsey@example.com</msg>
+<status status="PASS" starttime="20230302 10:55:01.964" endtime="20230302 10:55:01.977"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:55:01.982" level="INFO">${password} = $Z9VLKo)hk</msg>
+<status status="PASS" starttime="20230302 10:55:01.980" endtime="20230302 10:55:01.983"/>
+</kw>
+<msg timestamp="20230302 10:55:01.984" level="INFO">${password} = $Z9VLKo)hk</msg>
+<status status="PASS" starttime="20230302 10:55:01.978" endtime="20230302 10:55:01.986"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:55:01.995" level="INFO">${phone} = (734)651-2841x42131</msg>
+<status status="PASS" starttime="20230302 10:55:01.988" endtime="20230302 10:55:01.997"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.000" level="INFO">${phone} = (734)651-2841x42131</msg>
+<status status="PASS" starttime="20230302 10:55:01.998" endtime="20230302 10:55:02.001"/>
+</kw>
+<msg timestamp="20230302 10:55:02.001" level="INFO">${phone} = (734)651-2841x42131</msg>
+<status status="PASS" starttime="20230302 10:55:01.987" endtime="20230302 10:55:02.002"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:02.006" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:02.004" endtime="20230302 10:55:02.009"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.011" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:02.009" endtime="20230302 10:55:02.012"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:02.015" level="INFO">${pet} = Gatos</msg>
+<status status="PASS" starttime="20230302 10:55:02.012" endtime="20230302 10:55:02.016"/>
+</kw>
+<msg timestamp="20230302 10:55:02.018" level="INFO">${pet} = Gatos</msg>
+<status status="PASS" starttime="20230302 10:55:02.003" endtime="20230302 10:55:02.019"/>
+</kw>
+<kw name="Alterar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:55:02.021" level="INFO">${body} = {'id': 3, 'body': {'username': 'rachel17', 'firstName': 'Mary', 'lastName': 'Dalton', 'pet': 'Gatos', 'email': 'debraramsey@example.com', 'password': '$Z9VLKo)hk', 'phone': '(734)651-2841x42131', 'use...</msg>
+<status status="PASS" starttime="20230302 10:55:02.020" endtime="20230302 10:55:02.023"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:02.026" level="INFO">{'id': 3, 'body': {'username': 'rachel17', 'firstName': 'Mary', 'lastName': 'Dalton', 'pet': 'Gatos', 'email': 'debraramsey@example.com', 'password': '$Z9VLKo)hk', 'phone': '(734)651-2841x42131', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:02.023" endtime="20230302 10:55:02.027"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:02.030" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:02.028" endtime="20230302 10:55:02.031"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alterarCliente</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:02.213" level="INFO">PUT Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '213', 'Content-Type': 'application/json'} 
+ body=b'{"id": 3, "body": {"username": "rachel17", "firstName": "Mary", "lastName": "Dalton", "pet": "Gatos", "email": "debraramsey@example.com", "password": "$Z9VLKo)hk", "phone": "(734)651-2841x42131", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:02.214" level="INFO">PUT Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '197', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:00 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","body":{"username":"rachel17","firstName":"Mary","lastName":"Dalton","pet":"Gatos","email":"debraramsey@example.com","password":"$Z9VLKo)hk","phone":"(734)651-2841x42131","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:02.214" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:02.216" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:02.032" endtime="20230302 10:55:02.217"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:02.219" level="INFO">{'id': '2', 'body': {'username': 'rachel17', 'firstName': 'Mary', 'lastName': 'Dalton', 'pet': 'Gatos', 'email': 'debraramsey@example.com', 'password': '$Z9VLKo)hk', 'phone': '(734)651-2841x42131', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:02.217" endtime="20230302 10:55:02.220"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:01.912" endtime="20230302 10:55:02.222"/>
+</kw>
+<kw name="Alterar cliente 3" library="loja-pets-service">
+<kw name="Gerador de user aleatorios" library="loja-pets-service">
+<var>${user}</var>
+<kw name="User Name" library="FakerLibrary">
+<var>${user}</var>
+<msg timestamp="20230302 10:55:02.227" level="INFO">${user} = millerkelly</msg>
+<status status="PASS" starttime="20230302 10:55:02.226" endtime="20230302 10:55:02.229"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${user}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.232" level="INFO">${user} = millerkelly</msg>
+<status status="PASS" starttime="20230302 10:55:02.230" endtime="20230302 10:55:02.232"/>
+</kw>
+<msg timestamp="20230302 10:55:02.233" level="INFO">${user} = millerkelly</msg>
+<status status="PASS" starttime="20230302 10:55:02.223" endtime="20230302 10:55:02.234"/>
+</kw>
+<kw name="Gerador de primeiro nome aleatorios" library="loja-pets-service">
+<var>${firstName}</var>
+<kw name="First Name" library="FakerLibrary">
+<var>${firstName}</var>
+<msg timestamp="20230302 10:55:02.237" level="INFO">${firstName} = Maria</msg>
+<status status="PASS" starttime="20230302 10:55:02.236" endtime="20230302 10:55:02.237"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${firstName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.238" level="INFO">${firstName} = Maria</msg>
+<status status="PASS" starttime="20230302 10:55:02.237" endtime="20230302 10:55:02.240"/>
+</kw>
+<msg timestamp="20230302 10:55:02.242" level="INFO">${firstName} = Maria</msg>
+<status status="PASS" starttime="20230302 10:55:02.235" endtime="20230302 10:55:02.246"/>
+</kw>
+<kw name="Gerador de ultimo nome aleatorios" library="loja-pets-service">
+<var>${lastName}</var>
+<kw name="Last Name" library="FakerLibrary">
+<var>${lastName}</var>
+<msg timestamp="20230302 10:55:02.249" level="INFO">${lastName} = Rivera</msg>
+<status status="PASS" starttime="20230302 10:55:02.248" endtime="20230302 10:55:02.250"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${lastName}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.251" level="INFO">${lastName} = Rivera</msg>
+<status status="PASS" starttime="20230302 10:55:02.250" endtime="20230302 10:55:02.251"/>
+</kw>
+<msg timestamp="20230302 10:55:02.251" level="INFO">${lastName} = Rivera</msg>
+<status status="PASS" starttime="20230302 10:55:02.247" endtime="20230302 10:55:02.251"/>
+</kw>
+<kw name="Gerador de email aleatorios" library="loja-pets-service">
+<var>${email}</var>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<msg timestamp="20230302 10:55:02.252" level="INFO">${email} = anguyen@example.net</msg>
+<status status="PASS" starttime="20230302 10:55:02.252" endtime="20230302 10:55:02.253"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.254" level="INFO">${email} = anguyen@example.net</msg>
+<status status="PASS" starttime="20230302 10:55:02.253" endtime="20230302 10:55:02.255"/>
+</kw>
+<msg timestamp="20230302 10:55:02.256" level="INFO">${email} = anguyen@example.net</msg>
+<status status="PASS" starttime="20230302 10:55:02.251" endtime="20230302 10:55:02.256"/>
+</kw>
+<kw name="Gerador de senha aleatorios" library="loja-pets-service">
+<var>${password}</var>
+<kw name="Password" library="FakerLibrary">
+<var>${password}</var>
+<arg>10</arg>
+<arg>True</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20230302 10:55:02.265" level="INFO">${password} = @1CHWmgJyT</msg>
+<status status="PASS" starttime="20230302 10:55:02.261" endtime="20230302 10:55:02.267"/>
+</kw>
+<msg timestamp="20230302 10:55:02.267" level="INFO">${password} = @1CHWmgJyT</msg>
+<status status="PASS" starttime="20230302 10:55:02.257" endtime="20230302 10:55:02.268"/>
+</kw>
+<kw name="Gerador de telefone aleatorios" library="loja-pets-service">
+<var>${phone}</var>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${phone}</var>
+<msg timestamp="20230302 10:55:02.270" level="INFO">${phone} = 001-628-996-4703x78406</msg>
+<status status="PASS" starttime="20230302 10:55:02.269" endtime="20230302 10:55:02.271"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${phone}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.272" level="INFO">${phone} = 001-628-996-4703x78406</msg>
+<status status="PASS" starttime="20230302 10:55:02.271" endtime="20230302 10:55:02.272"/>
+</kw>
+<msg timestamp="20230302 10:55:02.272" level="INFO">${phone} = 001-628-996-4703x78406</msg>
+<status status="PASS" starttime="20230302 10:55:02.268" endtime="20230302 10:55:02.273"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:02.280" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:02.278" endtime="20230302 10:55:02.280"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:02.282" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:02.281" endtime="20230302 10:55:02.283"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:02.284" level="INFO">${pet} = Furão</msg>
+<status status="PASS" starttime="20230302 10:55:02.283" endtime="20230302 10:55:02.284"/>
+</kw>
+<msg timestamp="20230302 10:55:02.286" level="INFO">${pet} = Furão</msg>
+<status status="PASS" starttime="20230302 10:55:02.273" endtime="20230302 10:55:02.287"/>
+</kw>
+<kw name="Alterar Usuario" library="Pets">
+<var>${body}</var>
+<arg>${user}</arg>
+<arg>${firstName}</arg>
+<arg>${lastName}</arg>
+<arg>${pet}</arg>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<arg>${phone}</arg>
+<msg timestamp="20230302 10:55:02.288" level="INFO">${body} = {'id': 3, 'body': {'username': 'millerkelly', 'firstName': 'Maria', 'lastName': 'Rivera', 'pet': 'Furão', 'email': 'anguyen@example.net', 'password': '@1CHWmgJyT', 'phone': '001-628-996-4703x78406', '...</msg>
+<status status="PASS" starttime="20230302 10:55:02.287" endtime="20230302 10:55:02.289"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:02.289" level="INFO">{'id': 3, 'body': {'username': 'millerkelly', 'firstName': 'Maria', 'lastName': 'Rivera', 'pet': 'Furão', 'email': 'anguyen@example.net', 'password': '@1CHWmgJyT', 'phone': '001-628-996-4703x78406', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:02.289" endtime="20230302 10:55:02.290"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:02.293" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:02.291" endtime="20230302 10:55:02.296"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alterarCliente</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:02.468" level="INFO">PUT Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '221', 'Content-Type': 'application/json'} 
+ body=b'{"id": 3, "body": {"username": "millerkelly", "firstName": "Maria", "lastName": "Rivera", "pet": "Fur\\u00e3o", "email": "anguyen@example.net", "password": "@1CHWmgJyT", "phone": "001-628-996-4703x78406", "userStatus": 0}}' 
+ </msg>
+<msg timestamp="20230302 10:55:02.469" level="INFO">PUT Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '201', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:01 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","body":{"username":"millerkelly","firstName":"Maria","lastName":"Rivera","pet":"Furão","email":"anguyen@example.net","password":"@1CHWmgJyT","phone":"001-628-996-4703x78406","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:02.469" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:02.471" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:02.297" endtime="20230302 10:55:02.471"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:02.473" level="INFO">{'id': '3', 'body': {'username': 'millerkelly', 'firstName': 'Maria', 'lastName': 'Rivera', 'pet': 'Furão', 'email': 'anguyen@example.net', 'password': '@1CHWmgJyT', 'phone': '001-628-996-4703x78406', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:02.472" endtime="20230302 10:55:02.473"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:02.223" endtime="20230302 10:55:02.477"/>
+</kw>
+<tag>alterarCliente</tag>
+<status status="PASS" starttime="20230302 10:55:00.732" endtime="20230302 10:55:02.480"/>
+</test>
+<test id="s1-s1-s1-t4" name="Deletar cliente" line="50">
+<kw name="Conectar API" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>criarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:02.486" level="INFO">Creating Session using : alias=criarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:02.486" endtime="20230302 10:55:02.487"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>consultarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:02.488" level="INFO">Creating Session using : alias=consultarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:02.487" endtime="20230302 10:55:02.489"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alterarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:02.491" level="INFO">Creating Session using : alias=alterarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:02.489" endtime="20230302 10:55:02.494"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarCliente</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:02.498" level="INFO">Creating Session using : alias=deletarCliente, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:02.494" endtime="20230302 10:55:02.500"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:02.485" endtime="20230302 10:55:02.501"/>
+</kw>
+<kw name="Deletar Cliente" library="loja-pets-service">
+<kw name="Deletar Usuario" library="Pets">
+<var>${body}</var>
+<msg timestamp="20230302 10:55:02.503" level="INFO">${body} = {'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:02.503" endtime="20230302 10:55:02.504"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:02.505" level="INFO">{'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:02.504" endtime="20230302 10:55:02.506"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:02.507" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:02.506" endtime="20230302 10:55:02.507"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/1</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:03.028" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ path_url=/petstore/create/1 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:03.031" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '209', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:01 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"1","body":{"username":"sandraschmitt","firstName":"Deanna","lastName":"Chambers","pet":"Hamster","email":"derekbailey@example.com","password":"%NAXtShPT2","phone":"+1-993-831-2597x4478","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:03.034" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:03.040" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:02.508" endtime="20230302 10:55:03.046"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:03.246" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:03.248" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '197', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:01 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","body":{"username":"rachel17","firstName":"Mary","lastName":"Dalton","pet":"Gatos","email":"debraramsey@example.com","password":"$Z9VLKo)hk","phone":"(734)651-2841x42131","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:03.249" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:03.256" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:03.048" endtime="20230302 10:55:03.263"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:03.467" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:03.469" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '201', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:02 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","body":{"username":"millerkelly","firstName":"Maria","lastName":"Rivera","pet":"Furão","email":"anguyen@example.net","password":"@1CHWmgJyT","phone":"001-628-996-4703x78406","userStatus":0}} 
+ </msg>
+<msg timestamp="20230302 10:55:03.472" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:03.482" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:03.264" endtime="20230302 10:55:03.484"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:03.499" level="INFO">{'id': '3', 'body': {'username': 'millerkelly', 'firstName': 'Maria', 'lastName': 'Rivera', 'pet': 'Furão', 'email': 'anguyen@example.net', 'password': '@1CHWmgJyT', 'phone': '001-628-996-4703x78406', 'userStatus': 0}}</msg>
+<status status="PASS" starttime="20230302 10:55:03.487" endtime="20230302 10:55:03.501"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:02.502" endtime="20230302 10:55:03.504"/>
+</kw>
+<kw name="Deletar Cliente" library="loja-pets-service">
+<kw name="Deletar Usuario" library="Pets">
+<var>${body}</var>
+<msg timestamp="20230302 10:55:03.512" level="INFO">${body} = {'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:03.509" endtime="20230302 10:55:03.513"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:03.515" level="INFO">{'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:03.513" endtime="20230302 10:55:03.516"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:03.519" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:03.517" endtime="20230302 10:55:03.519"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/1</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:03.695" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ path_url=/petstore/create/1 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:03.698" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:02 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:03.700" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:03.703" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:03.520" endtime="20230302 10:55:03.704"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:03.897" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:03.902" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:02 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:03.906" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:03.920" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:03.706" endtime="20230302 10:55:03.922"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:04.117" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:04.119" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:02 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:04.122" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:04.132" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:03.923" endtime="20230302 10:55:04.133"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:04.138" level="INFO">Not found</msg>
+<status status="PASS" starttime="20230302 10:55:04.134" endtime="20230302 10:55:04.138"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:03.507" endtime="20230302 10:55:04.140"/>
+</kw>
+<kw name="Deletar Cliente" library="loja-pets-service">
+<kw name="Deletar Usuario" library="Pets">
+<var>${body}</var>
+<msg timestamp="20230302 10:55:04.148" level="INFO">${body} = {'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:04.146" endtime="20230302 10:55:04.149"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:04.150" level="INFO">{'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:04.149" endtime="20230302 10:55:04.150"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:04.152" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:04.151" endtime="20230302 10:55:04.153"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/1</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:04.328" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ path_url=/petstore/create/1 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:04.329" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:03 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:04.329" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:04.332" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:04.154" endtime="20230302 10:55:04.332"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:04.502" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:04.502" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:03 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:04.502" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:04.505" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:04.333" endtime="20230302 10:55:04.505"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarCliente</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:04.679" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:04.681" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=404, reason=Not Found 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '11', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:03 GMT', 'Via': '1.1 vegur'} 
+ body="Not found" 
+ </msg>
+<msg timestamp="20230302 10:55:04.682" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:04.683" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:04.505" endtime="20230302 10:55:04.684"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:04.686" level="INFO">Not found</msg>
+<status status="PASS" starttime="20230302 10:55:04.684" endtime="20230302 10:55:04.688"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:04.142" endtime="20230302 10:55:04.689"/>
+</kw>
+<tag>deletarCliente</tag>
+<status status="PASS" starttime="20230302 10:55:02.483" endtime="20230302 10:55:04.689"/>
+</test>
+<test id="s1-s1-s1-t5" name="Cadastrar Serviço" line="60">
+<kw name="Conectar API Cadastro Servicos" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>cadastrarServicos</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:04.697" level="INFO">Creating Session using : alias=cadastrarServicos, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:04.696" endtime="20230302 10:55:04.697"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarServicos</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:04.698" level="INFO">Creating Session using : alias=deletarServicos, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:04.697" endtime="20230302 10:55:04.698"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:04.695" endtime="20230302 10:55:04.698"/>
+</kw>
+<kw name="Cadastrar Banho" library="loja-pets-service">
+<kw name="Gerador de tipos de banhos" library="loja-pets-service">
+<var>${tipoBanho}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Normal</arg>
+<arg>Top</arg>
+<arg>Premium</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:04.702" level="INFO">${scalar} = ['Normal', 'Top', 'Premium']</msg>
+<status status="PASS" starttime="20230302 10:55:04.702" endtime="20230302 10:55:04.703"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${tipoBanho}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:04.704" level="INFO">${tipoBanho} = </msg>
+<status status="PASS" starttime="20230302 10:55:04.703" endtime="20230302 10:55:04.704"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tipoBanho}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:04.704" level="INFO">${tipoBanho} = Premium</msg>
+<status status="PASS" starttime="20230302 10:55:04.704" endtime="20230302 10:55:04.706"/>
+</kw>
+<msg timestamp="20230302 10:55:04.707" level="INFO">${tipoBanho} = Premium</msg>
+<status status="PASS" starttime="20230302 10:55:04.701" endtime="20230302 10:55:04.709"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:04.714" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:04.712" endtime="20230302 10:55:04.714"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:04.715" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:04.714" endtime="20230302 10:55:04.716"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:04.717" level="INFO">${pet} = Tartaruga tigre dágua</msg>
+<status status="PASS" starttime="20230302 10:55:04.716" endtime="20230302 10:55:04.717"/>
+</kw>
+<msg timestamp="20230302 10:55:04.719" level="INFO">${pet} = Tartaruga tigre dágua</msg>
+<status status="PASS" starttime="20230302 10:55:04.710" endtime="20230302 10:55:04.719"/>
+</kw>
+<kw name="Gerador de valores aleatorios" library="loja-pets-service">
+<var>${fakeValor}</var>
+<kw name="Random Number" library="FakerLibrary">
+<var>${fakeValor}</var>
+<arg>3</arg>
+<arg>True</arg>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20230302 10:55:04.723" level="INFO">${fakeValor} = 551</msg>
+<status status="PASS" starttime="20230302 10:55:04.721" endtime="20230302 10:55:04.724"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${fakeValor}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:04.726" level="INFO">${fakeValor} = 551</msg>
+<status status="PASS" starttime="20230302 10:55:04.724" endtime="20230302 10:55:04.727"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${fakeValor}</var>
+<arg>R$${fakeValor},00</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 10:55:04.729" level="INFO">${fakeValor} = R$551,00</msg>
+<status status="PASS" starttime="20230302 10:55:04.728" endtime="20230302 10:55:04.729"/>
+</kw>
+<msg timestamp="20230302 10:55:04.730" level="INFO">${fakeValor} = R$551,00</msg>
+<status status="PASS" starttime="20230302 10:55:04.719" endtime="20230302 10:55:04.731"/>
+</kw>
+<kw name="Status" library="loja-pets-service">
+<var>${status}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Aprovado</arg>
+<arg>Negado</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:04.733" level="INFO">${scalar} = ['Aprovado', 'Negado']</msg>
+<status status="PASS" starttime="20230302 10:55:04.732" endtime="20230302 10:55:04.733"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${status}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:04.734" level="INFO">${status} = </msg>
+<status status="PASS" starttime="20230302 10:55:04.733" endtime="20230302 10:55:04.734"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${status}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:04.737" level="INFO">${status} = Aprovado</msg>
+<status status="PASS" starttime="20230302 10:55:04.736" endtime="20230302 10:55:04.738"/>
+</kw>
+<msg timestamp="20230302 10:55:04.739" level="INFO">${status} = Aprovado</msg>
+<status status="PASS" starttime="20230302 10:55:04.731" endtime="20230302 10:55:04.739"/>
+</kw>
+<kw name="Calcular Porcentagem de Desconto" library="loja-pets-service">
+<var>${desconto}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${desconto}</var>
+<arg>(1 - (50 / ${fakeValor})) * 100</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:04.745" level="INFO">${desconto} = 90.92558983666062</msg>
+<status status="PASS" starttime="20230302 10:55:04.743" endtime="20230302 10:55:04.746"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${desconto}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:04.749" level="INFO">${desconto} = 90.92558983666062</msg>
+<status status="PASS" starttime="20230302 10:55:04.746" endtime="20230302 10:55:04.749"/>
+</kw>
+<msg timestamp="20230302 10:55:04.749" level="INFO">${desconto} = 90.92558983666062</msg>
+<status status="PASS" starttime="20230302 10:55:04.740" endtime="20230302 10:55:04.749"/>
+</kw>
+<kw name="Banho" library="Pets">
+<var>${body}</var>
+<arg>${tipoBanho}</arg>
+<arg>${pet}</arg>
+<arg>${fakeValor}</arg>
+<arg>${desconto}</arg>
+<arg>${status}</arg>
+<msg timestamp="20230302 10:55:04.751" level="INFO">${body} = {'servico': 1, 'Banho': 'Premium', 'Pet': 'Tartaruga tigre dágua', 'Valor': 'R$551,00', 'Desconto': 90.92558983666062, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:04.750" endtime="20230302 10:55:04.751"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:04.752" level="INFO">{'servico': 1, 'Banho': 'Premium', 'Pet': 'Tartaruga tigre dágua', 'Valor': 'R$551,00', 'Desconto': 90.92558983666062, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:04.752" endtime="20230302 10:55:04.753"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:04.754" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:04.753" endtime="20230302 10:55:04.754"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>cadastrarServicos</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:05.343" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '145', 'Content-Type': 'application/json'} 
+ body=b'{"servico": 1, "Banho": "Premium", "Pet": "Tartaruga tigre d\\u00e1gua", "Valor": "R$551,00", "Desconto": 90.92558983666062, "Status": "Aprovado"}' 
+ </msg>
+<msg timestamp="20230302 10:55:05.345" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '139', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:04 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"1","servico":1,"Banho":"Premium","Pet":"Tartaruga tigre dágua","Valor":"R$551,00","Desconto":90.92558983666062,"Status":"Aprovado"} 
+ </msg>
+<msg timestamp="20230302 10:55:05.348" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:05.354" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:04.754" endtime="20230302 10:55:05.359"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.366" level="INFO">{'id': '1', 'servico': 1, 'Banho': 'Premium', 'Pet': 'Tartaruga tigre dágua', 'Valor': 'R$551,00', 'Desconto': 90.92558983666062, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.361" endtime="20230302 10:55:05.368"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:04.700" endtime="20230302 10:55:05.372"/>
+</kw>
+<kw name="Cadastrar Tosa" library="loja-pets-service">
+<kw name="Gerador de tipos de tosas" library="loja-pets-service">
+<var>${tipoTosa}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tosa completa</arg>
+<arg>Tosa media</arg>
+<arg>Tosa especial</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.380" level="INFO">${scalar} = ['Tosa completa', 'Tosa media', 'Tosa especial']</msg>
+<status status="PASS" starttime="20230302 10:55:05.380" endtime="20230302 10:55:05.381"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${tipoTosa}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.383" level="INFO">${tipoTosa} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.381" endtime="20230302 10:55:05.384"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tipoTosa}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.387" level="INFO">${tipoTosa} = Tosa especial</msg>
+<status status="PASS" starttime="20230302 10:55:05.386" endtime="20230302 10:55:05.389"/>
+</kw>
+<msg timestamp="20230302 10:55:05.389" level="INFO">${tipoTosa} = Tosa especial</msg>
+<status status="PASS" starttime="20230302 10:55:05.379" endtime="20230302 10:55:05.392"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.396" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:05.394" endtime="20230302 10:55:05.396"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.398" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.397" endtime="20230302 10:55:05.398"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.400" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:55:05.399" endtime="20230302 10:55:05.401"/>
+</kw>
+<msg timestamp="20230302 10:55:05.401" level="INFO">${pet} = Hamster</msg>
+<status status="PASS" starttime="20230302 10:55:05.392" endtime="20230302 10:55:05.401"/>
+</kw>
+<kw name="Gerador de valores aleatorios" library="loja-pets-service">
+<var>${fakeValor}</var>
+<kw name="Random Number" library="FakerLibrary">
+<var>${fakeValor}</var>
+<arg>3</arg>
+<arg>True</arg>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20230302 10:55:05.404" level="INFO">${fakeValor} = 675</msg>
+<status status="PASS" starttime="20230302 10:55:05.403" endtime="20230302 10:55:05.405"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${fakeValor}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.407" level="INFO">${fakeValor} = 675</msg>
+<status status="PASS" starttime="20230302 10:55:05.406" endtime="20230302 10:55:05.410"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${fakeValor}</var>
+<arg>R$${fakeValor},00</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 10:55:05.412" level="INFO">${fakeValor} = R$675,00</msg>
+<status status="PASS" starttime="20230302 10:55:05.410" endtime="20230302 10:55:05.414"/>
+</kw>
+<msg timestamp="20230302 10:55:05.415" level="INFO">${fakeValor} = R$675,00</msg>
+<status status="PASS" starttime="20230302 10:55:05.402" endtime="20230302 10:55:05.415"/>
+</kw>
+<kw name="Status" library="loja-pets-service">
+<var>${status}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Aprovado</arg>
+<arg>Negado</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.417" level="INFO">${scalar} = ['Aprovado', 'Negado']</msg>
+<status status="PASS" starttime="20230302 10:55:05.416" endtime="20230302 10:55:05.417"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${status}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.419" level="INFO">${status} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.418" endtime="20230302 10:55:05.420"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${status}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.421" level="INFO">${status} = Aprovado</msg>
+<status status="PASS" starttime="20230302 10:55:05.420" endtime="20230302 10:55:05.422"/>
+</kw>
+<msg timestamp="20230302 10:55:05.423" level="INFO">${status} = Aprovado</msg>
+<status status="PASS" starttime="20230302 10:55:05.415" endtime="20230302 10:55:05.427"/>
+</kw>
+<kw name="Calcular Porcentagem de Desconto" library="loja-pets-service">
+<var>${desconto}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${desconto}</var>
+<arg>(1 - (50 / ${fakeValor})) * 100</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.431" level="INFO">${desconto} = 92.5925925925926</msg>
+<status status="PASS" starttime="20230302 10:55:05.430" endtime="20230302 10:55:05.431"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${desconto}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.433" level="INFO">${desconto} = 92.5925925925926</msg>
+<status status="PASS" starttime="20230302 10:55:05.432" endtime="20230302 10:55:05.433"/>
+</kw>
+<msg timestamp="20230302 10:55:05.433" level="INFO">${desconto} = 92.5925925925926</msg>
+<status status="PASS" starttime="20230302 10:55:05.428" endtime="20230302 10:55:05.433"/>
+</kw>
+<kw name="Tosa" library="Pets">
+<var>${body}</var>
+<arg>${tipoTosa}</arg>
+<arg>${pet}</arg>
+<arg>${fakeValor}</arg>
+<arg>${desconto}</arg>
+<arg>${status}</arg>
+<msg timestamp="20230302 10:55:05.435" level="INFO">${body} = {'servico': 2, 'Tosa': 'Tosa especial', 'Pet': 'Hamster', 'Valor': 'R$675,00', 'Desconto': 92.5925925925926, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.434" endtime="20230302 10:55:05.436"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.437" level="INFO">{'servico': 2, 'Tosa': 'Tosa especial', 'Pet': 'Hamster', 'Valor': 'R$675,00', 'Desconto': 92.5925925925926, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.436" endtime="20230302 10:55:05.439"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:05.440" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:05.439" endtime="20230302 10:55:05.441"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>cadastrarServicos</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:05.625" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '130', 'Content-Type': 'application/json'} 
+ body=b'{"servico": 2, "Tosa": "Tosa especial", "Pet": "Hamster", "Valor": "R$675,00", "Desconto": 92.5925925925926, "Status": "Aprovado"}' 
+ </msg>
+<msg timestamp="20230302 10:55:05.626" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '128', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:04 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","servico":2,"Tosa":"Tosa especial","Pet":"Hamster","Valor":"R$675,00","Desconto":92.5925925925926,"Status":"Aprovado"} 
+ </msg>
+<msg timestamp="20230302 10:55:05.627" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:05.628" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:05.446" endtime="20230302 10:55:05.629"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.630" level="INFO">{'id': '2', 'servico': 2, 'Tosa': 'Tosa especial', 'Pet': 'Hamster', 'Valor': 'R$675,00', 'Desconto': 92.5925925925926, 'Status': 'Aprovado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.629" endtime="20230302 10:55:05.631"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:05.375" endtime="20230302 10:55:05.631"/>
+</kw>
+<kw name="Cadastrar Banho e Tosa" library="loja-pets-service">
+<kw name="Gerador de tipos de banhos e tosas" library="loja-pets-service">
+<var>${tipoBanhoTosa}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Normal+Tosa completa</arg>
+<arg>Top+Tosa media</arg>
+<arg>Premium+Tosa especial</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.634" level="INFO">${scalar} = ['Normal+Tosa completa', 'Top+Tosa media', 'Premium+Tosa especial']</msg>
+<status status="PASS" starttime="20230302 10:55:05.634" endtime="20230302 10:55:05.634"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${tipoBanhoTosas}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.636" level="INFO">${tipoBanhoTosas} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.634" endtime="20230302 10:55:05.637"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tipoBanhoTosas}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.639" level="INFO">${tipoBanhoTosas} = Premium+Tosa especial</msg>
+<status status="PASS" starttime="20230302 10:55:05.637" endtime="20230302 10:55:05.639"/>
+</kw>
+<msg timestamp="20230302 10:55:05.639" level="INFO">${tipoBanhoTosa} = Premium+Tosa especial</msg>
+<status status="PASS" starttime="20230302 10:55:05.633" endtime="20230302 10:55:05.640"/>
+</kw>
+<kw name="Gerador de nome de animais aleatorios" library="loja-pets-service">
+<var>${pet}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Tartaruga tigre dágua</arg>
+<arg>Furão</arg>
+<arg>Iguana</arg>
+<arg>Tarântula</arg>
+<arg>Porquinho-da-índia</arg>
+<arg>Hamster</arg>
+<arg>Coelho</arg>
+<arg>Gatos</arg>
+<arg>Cachorro</arg>
+<arg>Cobra</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.643" level="INFO">${scalar} = ['Tartaruga tigre dágua', 'Furão', 'Iguana', 'Tarântula', 'Porquinho-da-índia', 'Hamster', 'Coelho', 'Gatos', 'Cachorro', 'Cobra']</msg>
+<status status="PASS" starttime="20230302 10:55:05.642" endtime="20230302 10:55:05.644"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${pet}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.645" level="INFO">${pet} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.645" endtime="20230302 10:55:05.646"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${pet}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.647" level="INFO">${pet} = Coelho</msg>
+<status status="PASS" starttime="20230302 10:55:05.646" endtime="20230302 10:55:05.648"/>
+</kw>
+<msg timestamp="20230302 10:55:05.648" level="INFO">${pet} = Coelho</msg>
+<status status="PASS" starttime="20230302 10:55:05.640" endtime="20230302 10:55:05.648"/>
+</kw>
+<kw name="Gerador de valores aleatorios" library="loja-pets-service">
+<var>${fakeValor}</var>
+<kw name="Random Number" library="FakerLibrary">
+<var>${fakeValor}</var>
+<arg>3</arg>
+<arg>True</arg>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20230302 10:55:05.650" level="INFO">${fakeValor} = 172</msg>
+<status status="PASS" starttime="20230302 10:55:05.649" endtime="20230302 10:55:05.652"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${fakeValor}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.653" level="INFO">${fakeValor} = 172</msg>
+<status status="PASS" starttime="20230302 10:55:05.652" endtime="20230302 10:55:05.653"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${fakeValor}</var>
+<arg>R$${fakeValor},00</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 10:55:05.655" level="INFO">${fakeValor} = R$172,00</msg>
+<status status="PASS" starttime="20230302 10:55:05.654" endtime="20230302 10:55:05.655"/>
+</kw>
+<msg timestamp="20230302 10:55:05.656" level="INFO">${fakeValor} = R$172,00</msg>
+<status status="PASS" starttime="20230302 10:55:05.648" endtime="20230302 10:55:05.657"/>
+</kw>
+<kw name="Status" library="loja-pets-service">
+<var>${status}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${scalar}</var>
+<arg>Aprovado</arg>
+<arg>Negado</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230302 10:55:05.661" level="INFO">${scalar} = ['Aprovado', 'Negado']</msg>
+<status status="PASS" starttime="20230302 10:55:05.660" endtime="20230302 10:55:05.663"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${status}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.664" level="INFO">${status} = </msg>
+<status status="PASS" starttime="20230302 10:55:05.663" endtime="20230302 10:55:05.664"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${status}</var>
+<arg>random.choice($scalar)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.665" level="INFO">${status} = Negado</msg>
+<status status="PASS" starttime="20230302 10:55:05.665" endtime="20230302 10:55:05.666"/>
+</kw>
+<msg timestamp="20230302 10:55:05.666" level="INFO">${status} = Negado</msg>
+<status status="PASS" starttime="20230302 10:55:05.657" endtime="20230302 10:55:05.667"/>
+</kw>
+<kw name="Calcular Porcentagem de Desconto" library="loja-pets-service">
+<var>${desconto}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${desconto}</var>
+<arg>(1 - (50 / ${fakeValor})) * 100</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 10:55:05.669" level="INFO">${desconto} = 70.93023255813952</msg>
+<status status="PASS" starttime="20230302 10:55:05.669" endtime="20230302 10:55:05.670"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${desconto}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 10:55:05.672" level="INFO">${desconto} = 70.93023255813952</msg>
+<status status="PASS" starttime="20230302 10:55:05.671" endtime="20230302 10:55:05.672"/>
+</kw>
+<msg timestamp="20230302 10:55:05.672" level="INFO">${desconto} = 70.93023255813952</msg>
+<status status="PASS" starttime="20230302 10:55:05.667" endtime="20230302 10:55:05.673"/>
+</kw>
+<kw name="Combo" library="Pets">
+<var>${body}</var>
+<arg>${tipoBanhoTosa}</arg>
+<arg>${pet}</arg>
+<arg>${fakeValor}</arg>
+<arg>${desconto}</arg>
+<arg>${status}</arg>
+<msg timestamp="20230302 10:55:05.676" level="INFO">${body} = {'servico': 3, 'Banho e Tosa': 'Premium+Tosa especial', 'Pet': 'Coelho', 'Valor': 'R$172,00', 'Desconto': 70.93023255813952, 'Status': 'Negado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.673" endtime="20230302 10:55:05.676"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.678" level="INFO">{'servico': 3, 'Banho e Tosa': 'Premium+Tosa especial', 'Pet': 'Coelho', 'Valor': 'R$172,00', 'Desconto': 70.93023255813952, 'Status': 'Negado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.677" endtime="20230302 10:55:05.679"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:05.679" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:05.679" endtime="20230302 10:55:05.681"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>cadastrarServicos</arg>
+<arg>/create</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:05.864" level="INFO">POST Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ path_url=/petstore/create 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '144', 'Content-Type': 'application/json'} 
+ body=b'{"servico": 3, "Banho e Tosa": "Premium+Tosa especial", "Pet": "Coelho", "Valor": "R$172,00", "Desconto": 70.93023255813952, "Status": "Negado"}' 
+ </msg>
+<msg timestamp="20230302 10:55:05.866" level="INFO">POST Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '142', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:04 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","servico":3,"Banho e Tosa":"Premium+Tosa especial","Pet":"Coelho","Valor":"R$172,00","Desconto":70.93023255813952,"Status":"Negado"} 
+ </msg>
+<msg timestamp="20230302 10:55:05.866" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:05.877" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:05.681" endtime="20230302 10:55:05.879"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.887" level="INFO">{'id': '3', 'servico': 3, 'Banho e Tosa': 'Premium+Tosa especial', 'Pet': 'Coelho', 'Valor': 'R$172,00', 'Desconto': 70.93023255813952, 'Status': 'Negado'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.881" endtime="20230302 10:55:05.892"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:05.633" endtime="20230302 10:55:05.896"/>
+</kw>
+<tag>cadastrarServicos</tag>
+<status status="PASS" starttime="20230302 10:55:04.693" endtime="20230302 10:55:05.900"/>
+</test>
+<test id="s1-s1-s1-t6" name="Deletar Serviço" line="70">
+<kw name="Conectar API Cadastro Servicos" library="loja-pets-service">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>cadastrarServicos</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:05.915" level="INFO">Creating Session using : alias=cadastrarServicos, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:05.914" endtime="20230302 10:55:05.917"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>deletarServicos</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 10:55:05.920" level="INFO">Creating Session using : alias=deletarServicos, url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 10:55:05.918" endtime="20230302 10:55:05.920"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:05.913" endtime="20230302 10:55:05.921"/>
+</kw>
+<kw name="Deletar Servico" library="loja-pets-service">
+<kw name="Deletar Servicos" library="Pets">
+<var>${body}</var>
+<msg timestamp="20230302 10:55:05.926" level="INFO">${body} = {'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.925" endtime="20230302 10:55:05.928"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:05.929" level="INFO">{'id': '3'}</msg>
+<status status="PASS" starttime="20230302 10:55:05.928" endtime="20230302 10:55:05.930"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=Application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 10:55:05.931" level="INFO">&amp;{headers} = { Content-Type=Application/json }</msg>
+<status status="PASS" starttime="20230302 10:55:05.930" endtime="20230302 10:55:05.931"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarServicos</arg>
+<arg>/create/1</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:06.514" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ path_url=/petstore/create/1 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:06.516" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/1 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '139', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:05 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"1","servico":1,"Banho":"Premium","Pet":"Tartaruga tigre dágua","Valor":"R$551,00","Desconto":90.92558983666062,"Status":"Aprovado"} 
+ </msg>
+<msg timestamp="20230302 10:55:06.518" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:06.529" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:05.932" endtime="20230302 10:55:06.532"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarServicos</arg>
+<arg>/create/2</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:06.729" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ path_url=/petstore/create/2 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:06.733" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/2 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '128', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:05 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"2","servico":2,"Tosa":"Tosa especial","Pet":"Hamster","Valor":"R$675,00","Desconto":92.5925925925926,"Status":"Aprovado"} 
+ </msg>
+<msg timestamp="20230302 10:55:06.735" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:06.743" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:06.534" endtime="20230302 10:55:06.747"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>deletarServicos</arg>
+<arg>/create/3</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 10:55:06.943" level="INFO">DELETE Request : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ path_url=/petstore/create/3 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '11', 'Content-Type': 'application/json'} 
+ body=b'{"id": "3"}' 
+ </msg>
+<msg timestamp="20230302 10:55:06.943" level="INFO">DELETE Response : url=https://5fa6fb8a085bf700163dec06.mockapi.io/petstore/create/3 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS', 'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type,Cache-Control,access_token', 'Content-Type': 'application/json', 'Content-Length': '142', 'Vary': 'Accept-Encoding', 'Date': 'Thu, 02 Mar 2023 13:55:05 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"3","servico":3,"Banho e Tosa":"Premium+Tosa especial","Pet":"Coelho","Valor":"R$172,00","Desconto":70.93023255813952,"Status":"Negado"} 
+ </msg>
+<msg timestamp="20230302 10:55:06.944" level="INFO">C:\Users\Lenovo T480\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host '5fa6fb8a085bf700163dec06.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230302 10:55:06.944" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 10:55:06.749" endtime="20230302 10:55:06.946"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230302 10:55:06.948" level="INFO">{'id': '3', 'servico': 3, 'Banho e Tosa': 'Premium+Tosa especial', 'Pet': 'Coelho', 'Valor': 'R$172,00', 'Desconto': 70.93023255813952, 'Status': 'Negado'}</msg>
+<status status="PASS" starttime="20230302 10:55:06.947" endtime="20230302 10:55:06.948"/>
+</kw>
+<status status="PASS" starttime="20230302 10:55:05.923" endtime="20230302 10:55:06.950"/>
+</kw>
+<tag>deletarServicos</tag>
+<status status="PASS" starttime="20230302 10:55:05.910" endtime="20230302 10:55:06.951"/>
+</test>
+<status status="PASS" starttime="20230302 10:54:57.533" endtime="20230302 10:55:06.954"/>
+</suite>
+<status status="PASS" starttime="20230302 10:54:57.527" endtime="20230302 10:55:06.959"/>
+</suite>
+<status status="PASS" starttime="20230302 10:54:57.493" endtime="20230302 10:55:06.963"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">alterarCliente</stat>
+<stat pass="1" fail="0" skip="0">cadastrarServicos</stat>
+<stat pass="1" fail="0" skip="0">consultarCliente</stat>
+<stat pass="1" fail="0" skip="0">criarCliente</stat>
+<stat pass="1" fail="0" skip="0">deletarCliente</stat>
+<stat pass="1" fail="0" skip="0">deletarServicos</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Robot-Exemplo">Robot-Exemplo</stat>
+<stat pass="6" fail="0" skip="0" id="s1-s1" name="Tests">Robot-Exemplo.Tests</stat>
+<stat pass="6" fail="0" skip="0" id="s1-s1-s1" name="Loja-Pets-Test">Robot-Exemplo.Tests.Loja-Pets-Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230302 10:54:57.379" level="ERROR">Error in file 'C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo\tests\loja-pets-test.robot' on line 9: Non-existing setting '//Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.'.</msg>
+<msg timestamp="20230302 10:54:57.381" level="ERROR">Error in file 'C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo\tests\loja-pets-test.robot' on line 10: Non-existing setting ''.</msg>
+<msg timestamp="20230302 10:54:57.382" level="ERROR">Error in file 'C:\Users\Lenovo T480\OneDrive\Documentos\QAPROJETOS\Robot-Exemplo\tests\loja-pets-test.robot' on line 11: Non-existing setting '//Teste de conexão 4'.</msg>
+</errors>
+</robot>
