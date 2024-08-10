@@ -54,7 +54,6 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            const { JSDOM } = require('jsdom');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
@@ -63,19 +62,16 @@ jobs:
             const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
             const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
 
-            // Extraindo falhas usando JSDOM para processar HTML
-            const dom = new JSDOM(logContent);
-            const document = dom.window.document;
-
-            // Seleciona as seções que contêm falhas
-            const failSections = Array.from(document.querySelectorAll('div.fail')).map(el => el.textContent).join('\n');
+            // Filtrando somente as seções que contêm "FAIL"
+            const failLogs = logContent.match(/<div[^>]*class="fail"[^>]*>([\s\S]*?)<\/div>/g);
+            const failText = failLogs ? failLogs.map(log => log.replace(/<\/?[^>]+>/g, '')).join('\n') : 'Nenhum erro encontrado.';
 
             const issueBody = `
               ## Detalhes do Erro
 
               **Logs de Erro dos Testes Falhados:**
               \`\`\`
-              ${failSections.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
+              ${failText.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
               \`\`\`
 
               **Action:** Verifique os logs para identificar e corrigir os erros.
