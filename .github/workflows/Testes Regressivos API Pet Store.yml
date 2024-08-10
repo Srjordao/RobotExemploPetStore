@@ -81,7 +81,7 @@ jobs:
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
             // Lendo o log de erro específico
-            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
+            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
             const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
 
             const issueBody = `
