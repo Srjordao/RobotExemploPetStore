@@ -47,44 +47,30 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Create Issue if Tests Fail
-        if: always()  # Sempre executa, independentemente do sucesso ou falha
-        uses: actions/github-script@v3
-        with:
-          script: |
-            const fs = require('fs');
-            const path = require('path');
+       - name: Extract Failed Test Details
+        run: |
+          python extract_failures.py output/output.xml > output/failed_tests.txt
+        id: extract_failures
 
-            // Configuração dos detalhes da issue
-            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            
-            // Lendo o log HTML
-            const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
-            const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
+  create-issue:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    if: ${{ always() }} # Continue even if previous steps fail
+    steps:
+      - name: Check if any tests failed
+        id: check-failures
+        run: echo "failure=$(grep -c 'FAIL' output/failed_tests.txt)" >> $GITHUB_ENV
 
-            // Filtrando somente as seções que contêm "FAIL"
-            const failLogs = logContent.match(/<div[^>]*class="fail"[^>]*>([\s\S]*?)<\/div>/g);
-            const failText = failLogs ? failLogs.map(log => log.replace(/<\/?[^>]+>/g, '')).join('\n') : 'Nenhum erro encontrado.';
-
-            const issueBody = `
-              ## Detalhes do Erro
-
-              **Logs de Erro dos Testes Falhados:**
-              \`\`\`
-              ${failText.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
-              \`\`\`
-
-              **Action:** Verifique os logs para identificar e corrigir os erros.
-            `;
-
-            // Criar a issue no repositório
-            await github.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: issueTitle,
-              body: issueBody,
-              labels: ['bug', 'automated test failure'],  // Adiciona etiquetas à issue
-            });
+      - name: Create Issue for Failed Tests
+        if: ${{ env.failure != 0 }}
+        run: |
+          TITLE="Test Failures Detected"
+          BODY=$(cat output/failed_tests.txt)
+          echo "Creating issue with title: $TITLE"
+          gh api -X POST repos/${{ github.repository }}/issues \
+            -f title="$TITLE" \
+            -f body="$BODY" \
+            -f labels="bug"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
