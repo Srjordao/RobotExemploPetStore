@@ -51,12 +51,10 @@ jobs:
         id: extract_logs
         run: |
           echo "Extraindo logs de erro..."
-          # Define o caminho do arquivo de log
           LOG_FILE='/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/log.html'
-          
           if [ -f "$LOG_FILE" ]; then
-            # Extrair logs de erro contendo a palavra "FAIL"
-            grep -A 20 'FAIL' "$LOG_FILE" > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
+            # Extrair apenas as seções com falhas, ignorando debug
+            sed -n '/FAIL/,/DEBUG/p' "$LOG_FILE" | grep -v 'DEBUG' > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
           else
             echo "Arquivo log.html não encontrado." > output/allure/error_log.txt
           fi
@@ -81,7 +79,7 @@ jobs:
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
             // Lendo o log de erro específico
-            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
+            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
             const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
 
             const issueBody = `
