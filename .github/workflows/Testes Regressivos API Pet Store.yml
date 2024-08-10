@@ -47,10 +47,13 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
+
       - name: Extract Failed Tests from XML
         id: extract_failures
         run: |
-          FAILED_TESTS=$(xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml)
+          FAILED_TESTS=$(xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml | sed 's/name=//g' | tr -d '"' | tr '\n' ', ')
           echo "failed_tests=${FAILED_TESTS}" >> $GITHUB_ENV
 
       - name: Create Issue for Failed Tests
