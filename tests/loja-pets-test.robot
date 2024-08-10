@@ -20,7 +20,7 @@ Library     String
 #Então devo visulizar que foram criados os cadastros dos clientes.
 Validar criação do cliente 
     [Tags]  criarCliente
-    #Conectar API
+    Conectar API
     Criar cliente
     Criar cliente
     Criar cliente
@@ -30,7 +30,7 @@ Validar criação do cliente
 #Então devo visulizar as informações.
 Consultar cliente
     [Tags]  consultarCliente
-    #Conectar API
+    Conectar API
     Consultar cliente
 
 #Dado que eu queira alterar o cadastro de um cliente 
