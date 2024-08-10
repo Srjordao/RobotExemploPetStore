@@ -40,21 +40,18 @@ jobs:
           pip install robotframework-xvfb
           pip install robotframework-pythonlibcore
           pip install pyyaml
+          pip install beautifulsoup4
 
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Extrair Logs de Erro
+      - name: Extract Error Logs
         if: failure()
-        id: extract-logs
         run: |
-          # Instalar dependências necessárias para manipulação de HTML
-          pip install beautifulsoup4
-
-          # Script para extrair logs de erro dos testes
-          python - <<EOF
+          # Usar BeautifulSoup para extrair logs de erro
+          python -c "
 import os
 from bs4 import BeautifulSoup
 
@@ -72,10 +69,9 @@ if os.path.exists(log_html_path):
 else:
     with open(error_log_path, 'w') as error_file:
         error_file.write('Log HTML não encontrado.')
+          "
 
-EOF
-
-      - name: Criar Issue se Testes Falharem
+      - name: Create Issue if Tests Fail
         if: failure()
         uses: actions/github-script@v3
         with:
