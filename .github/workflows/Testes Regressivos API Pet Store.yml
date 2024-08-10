@@ -47,10 +47,14 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Extract Failed Test Details
-        run: |
-          python extract_failures.py output/output.xml > output/failed_tests.txt
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
+
+      - name: Extract Failed Tests
         id: extract_failures
+        run: |
+          xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml > output/failed_tests.txt
+          xmllint --xpath "string(//statistics/total/stat[@fail='1']/text())" output/output.xml >> output/failed_tests.txt
 
   create-issue:
     name: Criar Issue para Testes Falhados
@@ -79,10 +83,3 @@ jobs:
         with:
           name: allure-report
           path: output/allure
-
-  hourly_job:
-    name: Hourly Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Current Time
-        run: echo "The current time is $(date)"
