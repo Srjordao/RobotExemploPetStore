@@ -36,29 +36,44 @@ jobs:
         continue-on-error: true
 
       - name: Criar Issue se Testes Falharem
-        if: always()  # Sempre executa, independentemente do sucesso ou falha
+        if: always()  # Executa sempre, independentemente do sucesso ou falha
         uses: actions/github-script@v3
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const { DOMParser } = require('xmldom');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
-            // Lendo o log HTML
-            const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'allure', 'log.html');
-            const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
+            // Lendo o arquivo output.xml
+            const xmlFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'output.xml');
+            const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : 'Log de erro não encontrado.';
+            
+            // Parse do XML
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlContent, 'application/xml');
 
-            // Filtrar todas as ocorrências de "fail"
-            const failMatches = logContent.match(/.*fail.*/gi);  // Captura linhas com "fail" (case-insensitive)
-            const failText = failMatches ? failMatches.join('\n') : 'Nenhum erro encontrado.';
+            // Encontrar todas as mensagens de falha
+            const failMessages = xmlDoc.getElementsByTagName('status');
+            let failText = '';
+
+            for (let i = 0; i < failMessages.length; i++) {
+              const status = failMessages[i].getAttribute('status');
+              if (status && status.toLowerCase() === 'fail') {
+                const failLog = failMessages[i].textContent.trim();
+                failText += `${failLog}\n\n`;
+              }
+            }
+
+            failText = failText || 'Nenhum erro encontrado.';
 
             // Criar corpo da issue com os detalhes dos erros
             const issueBody = `
               ## Detalhes do Erro
 
-              **Logs contendo "fail":**
+              **Logs contendo "FAIL":**
               \`\`\`
               ${failText.slice(0, 10000)}  // Limitar a 10000 caracteres para não sobrecarregar a issue
               \`\`\`
