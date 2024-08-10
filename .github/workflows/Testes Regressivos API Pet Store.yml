@@ -14,8 +14,8 @@ on:
     - cron: "0 * * * *"
 
 jobs:
-  create_issue_on_failure:
-    name: Criar Issue se Testes Falharem
+  run_tests_and_create_issue:
+    name: Executar Testes e Criar Issue se Falhar
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,30 +47,17 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Install xmllint
-        run: sudo apt-get install -y libxml2-utils
-
-      - name: Extract Failed Tests
+      - name: Extract Failed Tests from XML
         id: extract_failures
         run: |
-          xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml > output/failed_tests.txt
-          xmllint --xpath "string(//statistics/total/stat[@fail='1']/text())" output/output.xml >> output/failed_tests.txt
-
-  create-issue:
-    name: Criar Issue para Testes Falhados
-    needs: create_issue_on_failure
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if any tests failed
-        id: check-failures
-        run: echo "failure=$(grep -c 'FAIL' output/failed_tests.txt)" >> $GITHUB_ENV
+          FAILED_TESTS=$(xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml)
+          echo "failed_tests=${FAILED_TESTS}" >> $GITHUB_ENV
 
       - name: Create Issue for Failed Tests
-        if: ${{ env.failure != 0 }}
+        if: ${{ env.failed_tests != "" }}
         run: |
           TITLE="Test Failures Detected"
-          BODY=$(cat output/failed_tests.txt)
-          echo "Creating issue with title: $TITLE"
+          BODY="The following tests failed:\n${{ env.failed_tests }}\n\nCheck the full report for more details."
           gh api -X POST repos/${{ github.repository }}/issues \
             -f title="$TITLE" \
             -f body="$BODY" \
