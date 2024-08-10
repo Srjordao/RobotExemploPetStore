@@ -47,8 +47,8 @@ jobs:
       - name: Publicar Relatório do Robot como Artefato
         uses: actions/upload-artifact@v2
         with:
-          name: robot-framework-report
-          path: output/
+          name: allure-report
+          path: output/allure/
 
       - name: Criar Issue se Testes Falharem
         if: always()  # Executa sempre, independentemente do sucesso ou falha
@@ -88,11 +88,9 @@ jobs:
               ${failText.slice(0, characterLimit)}  // Limitar a ${characterLimit} caracteres para não sobrecarregar a issue
               \`\`\`
 
-              **Ação:** Verifique os logs acima para identificar e corrigir os problemas.
+              **Relatório Completo:** [Clique aqui para acessar o relatório Allure](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts)
 
-              **Relatório Completo:** [Clique aqui para acessar o relatório completo](./output/log.html)
-
-              **Artefato de Relatório:** O relatório completo está disponível como um [artefato do GitHub Actions](./output/).
+              **Artefato de Relatório:** O relatório completo está disponível como um [artefato do GitHub Actions](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts).
             `;
 
             // Criar a issue no repositório
