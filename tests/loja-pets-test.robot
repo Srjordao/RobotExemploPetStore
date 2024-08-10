@@ -30,7 +30,7 @@ Validar criação do cliente
 #Então devo visulizar as informações.
 Consultar cliente
     [Tags]  consultarCliente
-    Conectar API
+    #Conectar API
     Consultar cliente
 
 #Dado que eu queira alterar o cadastro de um cliente 
