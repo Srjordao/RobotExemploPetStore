@@ -52,6 +52,7 @@ jobs:
         run: |
           echo "Extraindo logs de erro..."
           if [ -f output/allure/log.html ]; then
+            # Extrair logs de erro de todos os testes que falharam
             grep -A 20 '<div class="error">' output/allure/log.html > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
           else
             echo "Arquivo log.html não encontrado." > output/allure/error_log.txt
@@ -71,17 +72,21 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const path = require('path');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/log.html', 'utf8');
+            
+            // Lendo o log de erro de todos os testes falhados
+            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
+            const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
+
             const issueBody = `
               ## Detalhes do Erro
 
-              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/allure/output.xml)
-
+              **Logs de Erro dos Testes Falhados:**
               \`\`\`
-              ${errorLog.slice(0, 1000)}  // Limitando a 1000 caracteres para não sobrecarregar a issue
+              ${errorLog.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
               \`\`\`
 
               **Action:** Verifique os logs para identificar e corrigir os erros.
