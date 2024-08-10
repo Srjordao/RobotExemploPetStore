@@ -44,7 +44,7 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Criar Issue se Testes falharem
         if: failure()
