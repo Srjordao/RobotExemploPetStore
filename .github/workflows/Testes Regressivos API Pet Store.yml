@@ -58,12 +58,15 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            // Configuração dos detalhes da issue
-            const issueTitle = `⚠️ Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            
             // Lendo o arquivo output.xml
             const xmlFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'output.xml');
-            const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : 'Log de erro não encontrado.';
+            const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : null;
+
+            // Verifica se o arquivo output.xml foi encontrado
+            if (!xmlContent) {
+              console.log('⚠️ Arquivo output.xml não encontrado. Não será criada uma issue.');
+              return;
+            }
 
             // Procurando por mensagens de falha no XML
             const failRegex = /<status status="FAIL".*?>\s*(.*?)\s*<\/status>/gi;
@@ -74,7 +77,14 @@ jobs:
               failText += `💥 ${match[1].trim()}\n\n`;
             }
 
-            failText = failText || 'Nenhum erro encontrado. 🎉';
+            // Se não houver falhas, não cria a issue
+            if (!failText) {
+              console.log('🎉 Todos os testes passaram. Não será criada uma issue.');
+              return;
+            }
+
+            // Configuração dos detalhes da issue
+            const issueTitle = `⚠️ Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
 
             // Limite de caracteres para o corpo da issue
             const characterLimit = 15000;
@@ -88,16 +98,4 @@ jobs:
               ${failText.slice(0, characterLimit)}  // Limitar a ${characterLimit} caracteres para não sobrecarregar a issue
               \`\`\`
 
-              🚀 **Ação Recomendada:** Verifique os logs acima para identificar e corrigir os erros. Vamos melhorar esses testes! 💪
-            `;
-
-            // Criar a issue no repositório
-            await github.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: issueTitle,
-              body: issueBody,
-              labels: ['bug', 'automated test failure', '⚠️ urgent'],
-            });
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              🚀 **Ação Recomendada:** Verifique os logs acima para identificar e corrigir os erros. Vamos melhorar
