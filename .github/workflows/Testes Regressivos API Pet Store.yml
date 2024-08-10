@@ -36,30 +36,33 @@ jobs:
         continue-on-error: true
 
       - name: Criar Issue se Testes Falharem
-        if: always()
+        if: always()  # Sempre executa, independentemente do sucesso ou falha
         uses: actions/github-script@v3
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
 
-            const issueTitle = `Falha nos Testes - ${new Date().toISOString()}`;
+            // Configuração dos detalhes da issue
+            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
-            // Ler o arquivo de log do Robot Framework
-            const logFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'log.html');
-            const logContent = fs.readFileSync(logFilePath, 'utf8');
+            // Lendo o log HTML
+            const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'allure', 'log.html');
+            const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
 
-            // Extrair falhas (usando uma expressão regular simples ou lógica de parsing)
-            const failLogs = logContent.match(/<td class="fail">([\s\S]*?)<\/td>/g);
-            const failText = failLogs ? failLogs.map(log => log.replace(/<\/?[^>]+>/g, '')).join('\n') : 'Nenhum erro encontrado.';
+            // Filtrar todas as ocorrências de "fail"
+            const failMatches = logContent.match(/.*fail.*/gi);  // Captura linhas com "fail" (case-insensitive)
+            const failText = failMatches ? failMatches.join('\n') : 'Nenhum erro encontrado.';
 
-            // Criar corpo da issue com detalhes dos erros
+            // Criar corpo da issue com os detalhes dos erros
             const issueBody = `
-              ## Testes Falharam
-              **Logs de Erro:**
+              ## Detalhes do Erro
+
+              **Logs contendo "fail":**
               \`\`\`
-              ${failText.slice(0, 10000)}  // Limitar a 10000 caracteres
+              ${failText.slice(0, 10000)}  // Limitar a 10000 caracteres para não sobrecarregar a issue
               \`\`\`
+
               **Ação:** Verifique os logs acima para identificar e corrigir os problemas.
             `;
 
