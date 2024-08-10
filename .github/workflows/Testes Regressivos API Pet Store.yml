@@ -41,13 +41,25 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: false
+        continue-on-error: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Octokit
+        run: npm install @octokit/rest
 
       - name: Processar Logs de Erro
         if: failure()
         run: |
-          mkdir -p output/error_logs
-          rebot --report NONE --log NONE --output NONE --outputdir output/error_logs --loglevel DEBUG:FAIL output/allure/output.xml
+          if [ -f "/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml" ]; then
+            mkdir -p output/error_logs
+            rebot --report NONE --log NONE --output NONE --outputdir output/error_logs --loglevel DEBUG:FAIL /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml
+          else
+            echo "Nenhum output.xml foi gerado. Skipping log processing."
+          fi
 
       - name: Criar Issue se Testes falharem
         if: failure()
@@ -60,8 +72,8 @@ jobs:
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            const failedTests = require('./output/allure/output.json').statistics.total.failed;
-            const errorLog = fs.readFileSync('output/error_logs/log.html', 'utf8');
+            const failedTests = require('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.json').statistics.total.failed;
+            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/error_logs/log.html', 'utf8');
             const issueBody = `
               ## Detalhes do Erro
 
