@@ -27,8 +27,17 @@ jobs:
       - name: Instalar dependências
         run: |
           pip install --upgrade pip
-          pip install robotframework
+          pip install --upgrade setuptools
+          pip install allure-robotframework
+          pip install robotframework-faker
+          pip install robotframework-jsonlibrary
+          pip install robotframework-jsonschemalibrary
+          pip install robotframework-jsonvalidator
+          pip install robotframework-metrics
           pip install robotframework-requests
+          pip install robotframework-xvfb
+          pip install robotframework-pythonlibcore
+          pip install pyyaml
 
       - name: Rodar Testes com Robot Framework
         run: |
