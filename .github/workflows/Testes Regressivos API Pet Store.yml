@@ -47,26 +47,6 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Extract Error Logs
-        id: extract_logs
-        run: |
-          echo "Extraindo logs de erro..."
-          LOG_FILE='/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/log.html'
-          if [ -f "$LOG_FILE" ]; then
-            # Extrair apenas as seções com falhas, ignorando debug
-            sed -n '/FAIL/,/DEBUG/p' "$LOG_FILE" | grep -v 'DEBUG' > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
-          else
-            echo "Arquivo log.html não encontrado." > output/allure/error_log.txt
-          fi
-
-      - name: Debug Log Output
-        if: always()  # Sempre executa, independentemente do sucesso ou falha
-        run: |
-          echo "Verificando logs..."
-          ls -l /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/
-          cat /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/log.html || echo "log.html não encontrado."
-          cat output/allure/error_log.txt || echo "error_log.txt não encontrado."
-
       - name: Create Issue if Tests Fail
         if: always()  # Sempre executa, independentemente do sucesso ou falha
         uses: actions/github-script@v3
@@ -74,23 +54,28 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const { JSDOM } = require('jsdom');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
-            // Lendo o log de erro específico
-            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
-            const logContent = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
+            // Lendo o log HTML
+            const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
+            const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
 
-            // Filtrar apenas as linhas que contêm a palavra "FAIL"
-            const failLogs = logContent.split('\n').filter(line => line.includes('FAIL')).join('\n');
+            // Extraindo falhas usando JSDOM para processar HTML
+            const dom = new JSDOM(logContent);
+            const document = dom.window.document;
+
+            // Seleciona as seções que contêm falhas
+            const failSections = Array.from(document.querySelectorAll('div.fail')).map(el => el.textContent).join('\n');
 
             const issueBody = `
               ## Detalhes do Erro
 
               **Logs de Erro dos Testes Falhados:**
               \`\`\`
-              ${failLogs.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
+              ${failSections.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
               \`\`\`
 
               **Action:** Verifique os logs para identificar e corrigir os erros.
