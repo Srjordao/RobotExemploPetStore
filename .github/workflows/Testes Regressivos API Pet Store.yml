@@ -71,19 +71,15 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const path = require('path');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            
-            // Lendo o log de erro
-            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
-            const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
-
+            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml', 'utf8');
             const issueBody = `
               ## Detalhes do Erro
 
-              **Log de Erro:**
+              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/allure/output.xml)
+
               \`\`\`
               ${errorLog.slice(0, 1000)}  // Limitando a 1000 caracteres para não sobrecarregar a issue
               \`\`\`
