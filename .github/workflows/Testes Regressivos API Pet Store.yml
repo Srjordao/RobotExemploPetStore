@@ -52,8 +52,8 @@ jobs:
         run: |
           echo "Extraindo logs de erro..."
           if [ -f output/allure/log.html ]; then
-            # Extrair logs de erro de todos os testes que falharam
-            grep -A 20 '<div class="error">' output/allure/log.html > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
+            # Extrair logs de erro contendo a palavra "FAIL"
+            grep -A 20 'FAIL' output/allure/log.html > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
           else
             echo "Arquivo log.html não encontrado." > output/allure/error_log.txt
           fi
@@ -77,7 +77,7 @@ jobs:
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
-            // Lendo o log de erro de todos os testes falhados
+            // Lendo o log de erro específico
             const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
             const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
 
