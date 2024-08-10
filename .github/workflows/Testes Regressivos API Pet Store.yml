@@ -71,36 +71,46 @@ jobs:
         if: always()  # Sempre executa, independentemente do sucesso ou falha
         uses: actions/github-script@v3
         with:
-          script: |
-            const fs = require('fs');
-            const path = require('path');
+          - name: Create Issue if Tests Fail
+  if: always()  # Sempre executa, independentemente do sucesso ou falha
+  uses: actions/github-script@v3
+  with:
+    script: |
+      const fs = require('fs');
+      const path = require('path');
 
-            // Configuração dos detalhes da issue
-            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            
-            // Lendo o log de erro específico
-            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
-            const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
+      // Configuração dos detalhes da issue
+      const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
+      
+      // Lendo o log de erro específico
+      const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
+      const logContent = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
 
-            const issueBody = `
-              ## Detalhes do Erro
+      // Filtrar apenas as linhas que contêm a palavra "FAIL"
+      const failLogs = logContent.split('\n').filter(line => line.includes('FAIL')).join('\n');
 
-              **Logs de Erro dos Testes Falhados:**
-              \`\`\`
-              ${errorLog.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
-              \`\`\`
+      const issueBody = `
+        ## Detalhes do Erro
 
-              **Action:** Verifique os logs para identificar e corrigir os erros.
-            `;
+        **Logs de Erro dos Testes Falhados:**
+        \`\`\`
+        ${failLogs.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
+        \`\`\`
 
-            // Criar a issue no repositório
-            await github.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: issueTitle,
-              body: issueBody,
-              labels: ['bug', 'automated test failure'],  // Adiciona etiquetas à issue
-            });
+        **Action:** Verifique os logs para identificar e corrigir os erros.
+      `;
+
+      // Criar a issue no repositório
+      await github.issues.create({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        title: issueTitle,
+        body: issueBody,
+        labels: ['bug', 'automated test failure'],  // Adiciona etiquetas à issue
+      });
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
