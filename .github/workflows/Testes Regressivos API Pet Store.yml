@@ -74,7 +74,7 @@ jobs:
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml', 'utf8');
+            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/log.html', 'utf8');
             const issueBody = `
               ## Detalhes do Erro
 
