@@ -45,7 +45,7 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: true  # Continua o fluxo mesmo se falhar
+        continue-on-error: false  # Continua o fluxo mesmo se falhar
 
       - name: Extract Error Logs
         id: extract_logs
