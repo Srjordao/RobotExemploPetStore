@@ -47,15 +47,15 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-       - name: Extract Failed Test Details
+      - name: Extract Failed Test Details
         run: |
           python extract_failures.py output/output.xml > output/failed_tests.txt
         id: extract_failures
 
   create-issue:
-    needs: run-tests
+    name: Criar Issue para Testes Falhados
+    needs: create_issue_on_failure
     runs-on: ubuntu-latest
-    if: ${{ always() }} # Continue even if previous steps fail
     steps:
       - name: Check if any tests failed
         id: check-failures
