@@ -44,6 +44,12 @@ jobs:
           robot -d output tests/
         continue-on-error: true
 
+      - name: Publicar Relatório do Robot como Artefato
+        uses: actions/upload-artifact@v2
+        with:
+          name: robot-framework-report
+          path: output/
+
       - name: Criar Issue se Testes Falharem
         if: always()  # Executa sempre, independentemente do sucesso ou falha
         uses: actions/github-script@v3
@@ -70,16 +76,23 @@ jobs:
 
             failText = failText || 'Nenhum erro encontrado.';
 
+            // Limite de caracteres para o corpo da issue
+            const characterLimit = 15000;
+
             // Criar corpo da issue com os detalhes dos erros
             const issueBody = `
               ## Detalhes do Erro
 
               **Logs contendo "FAIL":**
               \`\`\`
-              ${failText.slice(0, 10000)}  // Limitar a 10000 caracteres para não sobrecarregar a issue
+              ${failText.slice(0, characterLimit)}  // Limitar a ${characterLimit} caracteres para não sobrecarregar a issue
               \`\`\`
 
               **Ação:** Verifique os logs acima para identificar e corrigir os problemas.
+
+              **Relatório Completo:** [Clique aqui para acessar o relatório completo](./output/log.html)
+
+              **Artefato de Relatório:** O relatório completo está disponível como um [artefato do GitHub Actions](./output/).
             `;
 
             // Criar a issue no repositório
@@ -92,9 +105,3 @@ jobs:
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publicar Relatório do Robot como Artefato
-        uses: actions/upload-artifact@v2
-        with:
-          name: robot-framework-report
-          path: output/
