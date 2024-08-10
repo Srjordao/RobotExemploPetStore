@@ -14,8 +14,8 @@ on:
     - cron: "0 * * * *"
 
 jobs:
-  run_tests_and_create_issue:
-    name: Executar Testes e Criar Issue se Falhar
+  create_issue_on_failure:
+    name: Criar Issue se Testes Falharem
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,24 +47,44 @@ jobs:
           robot -d output/allure --listener allure_robotframework "tests"
         continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Install xmllint
-        run: sudo apt-get install -y libxml2-utils
+      - name: Create Issue if Tests Fail
+        if: always()  # Sempre executa, independentemente do sucesso ou falha
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
 
-      - name: Extract Failed Tests from XML
-        id: extract_failures
-        run: |
-          FAILED_TESTS=$(xmllint --xpath "//test[@status='FAIL']/@name" output/output.xml | sed 's/name=//g' | tr -d '"' | tr '\n' ', ')
-          echo "failed_tests=${FAILED_TESTS}" >> $GITHUB_ENV
+            // Configuração dos detalhes da issue
+            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
+            
+            // Lendo o log HTML
+            const logHtmlPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/log.html');
+            const logContent = fs.existsSync(logHtmlPath) ? fs.readFileSync(logHtmlPath, 'utf8') : 'Log de erro não encontrado.';
 
-      - name: Create Issue for Failed Tests
-        if: ${{ env.failed_tests != "" }}
-        run: |
-          TITLE="Test Failures Detected"
-          BODY="The following tests failed:\n${{ env.failed_tests }}\n\nCheck the full report for more details."
-          gh api -X POST repos/${{ github.repository }}/issues \
-            -f title="$TITLE" \
-            -f body="$BODY" \
-            -f labels="bug"
+            // Filtrando somente as seções que contêm "FAIL"
+            const failLogs = logContent.match(/<div[^>]*class="fail"[^>]*>([\s\S]*?)<\/div>/g);
+            const failText = failLogs ? failLogs.map(log => log.replace(/<\/?[^>]+>/g, '')).join('\n') : 'Nenhum erro encontrado.';
+
+            const issueBody = `
+              ## Detalhes do Erro
+
+              **Logs de Erro dos Testes Falhados:**
+              \`\`\`
+              ${failText.slice(0, 10000)}  // Limitando a 10000 caracteres para não sobrecarregar a issue
+              \`\`\`
+
+              **Action:** Verifique os logs para identificar e corrigir os erros.
+            `;
+
+            // Criar a issue no repositório
+            await github.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: issueBody,
+              labels: ['bug', 'automated test failure'],  // Adiciona etiquetas à issue
+            });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -73,3 +93,10 @@ jobs:
         with:
           name: allure-report
           path: output/allure
+
+  hourly_job:
+    name: Hourly Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Current Time
+        run: echo "The current time is $(date)"
