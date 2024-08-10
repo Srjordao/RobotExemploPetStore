@@ -42,7 +42,6 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            const { DOMParser } = require('xmldom');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
@@ -51,20 +50,13 @@ jobs:
             const xmlFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'output.xml');
             const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : 'Log de erro não encontrado.';
             
-            // Parse do XML
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlContent, 'application/xml');
-
-            // Encontrar todas as mensagens de falha
-            const failMessages = xmlDoc.getElementsByTagName('status');
+            // Procurando por mensagens de falha no XML
+            const failRegex = /<status.*?status="FAIL".*?>\s*(.*?)\s*<\/status>/gi;
+            let match;
             let failText = '';
 
-            for (let i = 0; i < failMessages.length; i++) {
-              const status = failMessages[i].getAttribute('status');
-              if (status && status.toLowerCase() === 'fail') {
-                const failLog = failMessages[i].textContent.trim();
-                failText += `${failLog}\n\n`;
-              }
+            while ((match = failRegex.exec(xmlContent)) !== null) {
+              failText += `${match[1].trim()}\n\n`;
             }
 
             failText = failText || 'Nenhum erro encontrado.';
