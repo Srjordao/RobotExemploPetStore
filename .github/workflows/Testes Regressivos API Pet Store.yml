@@ -59,16 +59,11 @@ jobs:
             const path = require('path');
 
             // Configuração dos detalhes da issue
-            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
+            const issueTitle = `⚠️ Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
             
             // Lendo o arquivo output.xml
             const xmlFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'output.xml');
             const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : 'Log de erro não encontrado.';
-
-            // Capturando a quantidade de testes passados e falhados
-            const totalTests = (xmlContent.match(/<test case/g) || []).length;
-            const failedTests = (xmlContent.match(/<status status="FAIL"/g) || []).length;
-            const passedTests = totalTests - failedTests;
 
             // Procurando por mensagens de falha no XML
             const failRegex = /<status status="FAIL".*?>\s*(.*?)\s*<\/status>/gi;
@@ -76,30 +71,24 @@ jobs:
             let failText = '';
 
             while ((match = failRegex.exec(xmlContent)) !== null) {
-              failText += `${match[1].trim()}\n\n`;
+              failText += `💥 ${match[1].trim()}\n\n`;
             }
 
-            failText = failText || 'Nenhum erro encontrado.';
+            failText = failText || 'Nenhum erro encontrado. 🎉';
 
             // Limite de caracteres para o corpo da issue
             const characterLimit = 15000;
 
             // Criar corpo da issue com os detalhes dos erros
             const issueBody = `
-              ## Detalhes do Erro
+              ## 🛑 Detalhes do Erro
 
-              **Quantidade de Testes:**
-              - Passaram: ${passedTests}
-              - Falharam: ${failedTests}
-
-              **Logs contendo "FAIL":**
+              **⚠️ Logs contendo "FAIL":**
               \`\`\`
               ${failText.slice(0, characterLimit)}  // Limitar a ${characterLimit} caracteres para não sobrecarregar a issue
               \`\`\`
 
-              **Relatório Completo:** [Clique aqui para acessar o relatório completo](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts)
-
-              **Artefato de Relatório:** O relatório completo está disponível como um [artefato do GitHub Actions](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts).
+              🚀 **Ação Recomendada:** Verifique os logs acima para identificar e corrigir os erros. Vamos melhorar esses testes! 💪
             `;
 
             // Criar a issue no repositório
@@ -108,7 +97,7 @@ jobs:
               repo: context.repo.repo,
               title: issueTitle,
               body: issueBody,
-              labels: ['bug', 'automated test failure'],
+              labels: ['bug', 'automated test failure', '⚠️ urgent'],
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
