@@ -20,7 +20,7 @@ Library     String
 #Então devo visulizar que foram criados os cadastros dos clientes.
 Validar criação do cliente 
     [Tags]  criarCliente
-    Conectar API
+  
     Criar cliente
     Criar cliente
     Criar cliente
