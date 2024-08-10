@@ -44,23 +44,56 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: false
+        continue-on-error: true  # Continua o fluxo mesmo se falhar
 
-      - name: Criar Issue se Testes falharem
+      - name: Extrair Logs de Erro
+        if: failure()
+        id: extract-logs
+        run: |
+          # Instalar dependências necessárias para manipulação de HTML
+          pip install beautifulsoup4
+
+          # Script para extrair logs de erro dos testes
+          python - <<EOF
+import os
+from bs4 import BeautifulSoup
+
+log_html_path = 'output/allure/log.html'
+error_log_path = 'output/allure/error_log.txt'
+
+if os.path.exists(log_html_path):
+    with open(log_html_path, 'r') as file:
+        soup = BeautifulSoup(file, 'html.parser')
+        error_logs = soup.find_all(class_='error')  # Ajustar a classe conforme necessário
+
+        with open(error_log_path, 'w') as error_file:
+            for log in error_logs:
+                error_file.write(log.get_text(separator='\n'))
+else:
+    with open(error_log_path, 'w') as error_file:
+        error_file.write('Log HTML não encontrado.')
+
+EOF
+
+      - name: Criar Issue se Testes Falharem
         if: failure()
         uses: actions/github-script@v3
         with:
           script: |
             const fs = require('fs');
+            const path = require('path');
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml', 'utf8');
+
+            // Lendo o log de erro
+            const errorLogPath = path.join(process.env.GITHUB_WORKSPACE, 'output/allure/error_log.txt');
+            const errorLog = fs.existsSync(errorLogPath) ? fs.readFileSync(errorLogPath, 'utf8') : 'Log de erro não encontrado.';
+
             const issueBody = `
               ## Detalhes do Erro
 
-              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/allure/output.xml)
-
+              **Log de Erro:**
               \`\`\`
               ${errorLog.slice(0, 1000)}  // Limitando a 1000 caracteres para não sobrecarregar a issue
               \`\`\`
@@ -79,7 +112,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Publish Allure Report as Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -92,5 +124,3 @@ jobs:
     steps:
       - name: Print Current Time
         run: echo "The current time is $(date)"
-
-
