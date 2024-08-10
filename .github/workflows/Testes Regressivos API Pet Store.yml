@@ -45,11 +45,12 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: false  # Continua o fluxo mesmo se falhar
+        continue-on-error: true  # Continua o fluxo mesmo se falhar
 
       - name: Extract Error Logs
         id: extract_logs
         run: |
+          echo "Extraindo logs de erro..."
           if [ -f output/allure/log.html ]; then
             grep -A 20 '<div class="error">' output/allure/log.html > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
           else
@@ -59,13 +60,13 @@ jobs:
       - name: Debug Log Output
         if: always()  # Sempre executa, independentemente do sucesso ou falha
         run: |
-          echo "Test logs:"
+          echo "Verificando logs..."
           ls -l output/allure/
           cat output/allure/log.html || echo "log.html não encontrado."
           cat output/allure/error_log.txt || echo "error_log.txt não encontrado."
 
       - name: Create Issue if Tests Fail
-        if: failure()  # Cria a issue se houver falha
+        if: always()  # Sempre executa, independentemente do sucesso ou falha
         uses: actions/github-script@v3
         with:
           script: |
