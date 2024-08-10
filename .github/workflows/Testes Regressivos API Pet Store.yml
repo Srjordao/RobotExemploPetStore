@@ -49,7 +49,6 @@ jobs:
 
       - name: Extract Error Logs
         id: extract_logs
-        if: failure()
         run: |
           if [ -f output/allure/log.html ]; then
             grep -A 20 '<div class="error">' output/allure/log.html > output/allure/error_log.txt || echo "Não foram encontrados erros no log."
@@ -66,7 +65,7 @@ jobs:
           cat output/allure/error_log.txt || echo "error_log.txt não encontrado."
 
       - name: Create Issue if Tests Fail
-        if: failure()  # Somente cria a issue se houver falha
+        if: failure()  # Cria a issue se houver falha
         uses: actions/github-script@v3
         with:
           script: |
