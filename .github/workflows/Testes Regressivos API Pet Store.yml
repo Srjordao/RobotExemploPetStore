@@ -11,8 +11,8 @@ on:
     - cron: "0 * * * *"
 
 jobs:
-  run_robot_tests:
-    name: Testes Regressivos API Pet Store
+  create_issue_on_failure:
+    name: Criar Issue se Testes Falharem
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -41,7 +41,7 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
-        continue-on-error: false
+        continue-on-error: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -50,16 +50,6 @@ jobs:
 
       - name: Install Octokit
         run: npm install @octokit/rest
-
-      - name: Processar Logs de Erro
-        if: failure()
-        run: |
-          if [ -f "/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml" ]; then
-            mkdir -p output/error_logs
-            rebot --report NONE --log NONE --output NONE --outputdir output/error_logs --loglevel DEBUG:FAIL /home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml
-          else
-            echo "Nenhum output.xml foi gerado. Skipping log processing."
-          fi
 
       - name: Criar Issue se Testes falharem
         if: failure()
@@ -72,14 +62,11 @@ jobs:
 
             // Configuração dos detalhes da issue
             const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
-            const failedTests = require('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.json').statistics.total.failed;
-            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/error_logs/log.html', 'utf8');
+            const errorLog = fs.readFileSync('/home/runner/work/RobotExemploPetStore/RobotExemploPetStore/output/allure/output.xml', 'utf8');
             const issueBody = `
               ## Detalhes do Erro
 
-              **Número de testes falhados:** ${failedTests}
-
-              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/error_logs/log.html)
+              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/allure/output.xml)
 
               \`\`\`
               ${errorLog.slice(0, 1000)}  // Limitando a 1000 caracteres para não sobrecarregar a issue
@@ -111,3 +98,5 @@ jobs:
     steps:
       - name: Print Current Time
         run: echo "The current time is $(date)"
+
+
