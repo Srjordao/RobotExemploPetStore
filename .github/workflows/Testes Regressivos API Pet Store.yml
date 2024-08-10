@@ -41,6 +41,51 @@ jobs:
       - name: Run Robot Framework tests
         run: |
           robot -d output/allure --listener allure_robotframework "tests"
+        continue-on-error: true
+
+      - name: Processar Logs de Erro
+        if: failure()
+        run: |
+          mkdir -p output/error_logs
+          rebot --report NONE --log NONE --output NONE --outputdir output/error_logs --loglevel DEBUG:FAIL output/allure/output.xml
+
+      - name: Criar Issue se Testes falharem
+        if: failure()
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const { Octokit } = require("@octokit/rest");
+            const fs = require('fs');
+            const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+
+            // Configuração dos detalhes da issue
+            const issueTitle = `Testes falharam em ${context.workflow} - ${new Date().toISOString()}`;
+            const failedTests = require('./output/allure/output.json').statistics.total.failed;
+            const errorLog = fs.readFileSync('output/error_logs/log.html', 'utf8');
+            const issueBody = `
+              ## Detalhes do Erro
+
+              **Número de testes falhados:** ${failedTests}
+
+              **Logs de Erro:** [Clique aqui para acessar o log completo](./output/error_logs/log.html)
+
+              \`\`\`
+              ${errorLog.slice(0, 1000)}  // Limitando a 1000 caracteres para não sobrecarregar a issue
+              \`\`\`
+
+              **Action:** Verifique os logs para identificar e corrigir os erros.
+            `;
+
+            // Criar a issue no repositório
+            await octokit.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: issueBody,
+              labels: ['bug', 'automated test failure'],  // Adiciona etiquetas à issue
+            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish Allure Report as Artifact
         uses: actions/upload-artifact@v2
