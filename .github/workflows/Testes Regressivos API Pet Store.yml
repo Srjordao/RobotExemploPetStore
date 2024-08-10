@@ -47,8 +47,8 @@ jobs:
       - name: Publicar Relatório do Robot como Artefato
         uses: actions/upload-artifact@v2
         with:
-          name: allure-report
-          path: output/allure/
+          name: robot-log-html
+          path: output/log.html
 
       - name: Criar Issue se Testes Falharem
         if: always()  # Executa sempre, independentemente do sucesso ou falha
@@ -65,12 +65,13 @@ jobs:
             const xmlFilePath = path.join(process.env.GITHUB_WORKSPACE, 'output', 'output.xml');
             const xmlContent = fs.existsSync(xmlFilePath) ? fs.readFileSync(xmlFilePath, 'utf8') : 'Log de erro não encontrado.';
 
-            // Contagem de testes passados e falhados
-            const passedTests = (xmlContent.match(/<status.*?status="PASS"/gi) || []).length;
-            const failedTests = (xmlContent.match(/<status.*?status="FAIL"/gi) || []).length;
+            // Capturando a quantidade de testes passados e falhados
+            const totalTests = (xmlContent.match(/<test case/g) || []).length;
+            const failedTests = (xmlContent.match(/<status status="FAIL"/g) || []).length;
+            const passedTests = totalTests - failedTests;
 
             // Procurando por mensagens de falha no XML
-            const failRegex = /<status.*?status="FAIL".*?>\s*(.*?)\s*<\/status>/gi;
+            const failRegex = /<status status="FAIL".*?>\s*(.*?)\s*<\/status>/gi;
             let match;
             let failText = '';
 
@@ -96,7 +97,7 @@ jobs:
               ${failText.slice(0, characterLimit)}  // Limitar a ${characterLimit} caracteres para não sobrecarregar a issue
               \`\`\`
 
-              **Relatório Completo:** [Clique aqui para acessar o relatório Allure](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts)
+              **Relatório Completo:** [Clique aqui para acessar o relatório completo](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts)
 
               **Artefato de Relatório:** O relatório completo está disponível como um [artefato do GitHub Actions](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts).
             `;
