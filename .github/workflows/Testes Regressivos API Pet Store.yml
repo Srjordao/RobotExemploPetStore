@@ -1,4 +1,4 @@
-name: Testes Regressivos com Robot Framework
+name: Testes Regressivos API Pet Store
 
 permissions:
   issues: write
