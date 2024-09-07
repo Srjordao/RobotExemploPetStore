@@ -1,9 +1,10 @@
 name: Testes Regressivos API Pet Store
 
-
 permissions:
+
   issues: write
 on:
+  workflow_dispatch:  # Aciona quando o workflow_dispatch for chamado
   push:
     branches:
       - master
