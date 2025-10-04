@@ -6,18 +6,19 @@ Library     Collections
 Library     FakerLibrary
 Library     String
 
-#Funcionalidade: Cadastro, consulta, alteração e exclusão de clientes.
-#                Cadastro e exclusão de serviços.
+# Funcionalidade: Gerenciamento de Clientes e Serviços
 
-#Eu como PO.
-#Quero cadastrar,consultar,alterar e excluir clientes. 
-#Para poder validar as funcionalidades do sistema.
+# Eu, como PO,
+# Quero cadastrar, consultar, alterar e excluir clientes,
+# E também cadastrar e excluir serviços,
+# Para garantir que o sistema funciona corretamente.
 
 *** Test Cases ***
 
-#Dado que eu queira cadastrar um cliente 
-#Quando realizar o POST no endpoint create 
-#Então devo visulizar que foram criados os cadastros dos clientes.
+# Cenário: Cadastro de clientes
+# Dado que eu queira cadastrar clientes
+# Quando eu realizar o POST no endpoint /create
+# Então devo visualizar que os cadastros foram criados com sucesso.
 Validar criação do cliente 
     [Tags]  criarCliente
     Conectar API
@@ -25,17 +26,19 @@ Validar criação do cliente
     Criar cliente
     Criar cliente
 
-#Dado que eu queira consultar os dados de um cliente
-#Quando realizar o GET no endpoint create 
-#Então devo visulizar as informações.
+# Cenário: Consulta de cliente
+# Dado que eu queira consultar os dados de um cliente
+# Quando eu realizar o GET no endpoint /create
+# Então devo visualizar as informações corretamente.
 Consultar cliente
     [Tags]  consultarCliente
     Conectar API
     Consultar cliente
 
-#Dado que eu queira alterar o cadastro de um cliente 
-#Quando realizar o PUT no endpoint create 
-#Então devo visulizar que foram alterados as informações nos cadastros dos clientes.
+# Cenário: Alteração de cliente
+# Dado que eu queira alterar o cadastro de um cliente
+# Quando eu realizar o PUT no endpoint /create
+# Então devo visualizar que as informações foram alteradas com sucesso.
 Alterar cliente
     [Tags]  alterarCliente
     Conectar API
@@ -43,9 +46,10 @@ Alterar cliente
     Alterar cliente 2
     Alterar cliente 3
 
-#Dado que eu queira deletar o cadastro de um cliente 
-#Quando realizar o DELETE no endpoint create 
-#Então devo visulizar que os dados foram excluidos.
+# Cenário: Exclusão de cliente
+# Dado que eu queira deletar o cadastro de um cliente
+# Quando eu realizar o DELETE no endpoint /create
+# Então devo visualizar que os dados foram excluídos corretamente.
 Deletar cliente
     [Tags]  deletarCliente
     Conectar API
@@ -53,9 +57,10 @@ Deletar cliente
     Deletar Cliente
     Deletar Cliente
 
-#Dado que eu queira cadastrar um serviço 
-#Quando realizar o POST no endpoint create 
-#Então devo visulizar que foram criados os serviços.
+# Cenário: Cadastro de serviços
+# Dado que eu queira cadastrar serviços
+# Quando eu realizar o POST no endpoint /create
+# Então devo visualizar que os serviços foram criados com sucesso.
 Cadastrar Serviço
     [Tags]  cadastrarServicos
     Conectar API Cadastro Servicos
@@ -63,9 +68,10 @@ Cadastrar Serviço
     Cadastrar Tosa
     Cadastrar Banho e Tosa
 
-#Dado que eu queira deletar um serviço 
-#Quando realizar o DELETE no endpoint create 
-#Então devo visulizar que foram deletados os serviços cadastrados.
+# Cenário: Exclusão de serviços
+# Dado que eu queira deletar serviços
+# Quando eu realizar o DELETE no endpoint /create
+# Então devo visualizar que os serviços foram excluídos corretamente.
 Deletar Serviço
     [Tags]  deletarServicos
     Conectar API Cadastro Servicos
